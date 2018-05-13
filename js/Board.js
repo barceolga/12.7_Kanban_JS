@@ -1,32 +1,33 @@
 var board = {
-	name: 'Tablica Kanban',
+	name: 'Kanban board',
 	createColumn: function(column) {
-	  this.$element.append(column.$element);
-	  initSortable();
+		  this.$element.append(column.$element);
+		  initSortable();
 	},
 	$element: $('#board .column-container')
 };
 
 $('.create-column')
 	.click(function(){
-		var columnName = prompt('Enter a column name');
-		board.createColumn(new Column(columnName));
-
-		$.ajaxSetup({
-			headers: myHeaders
-		});
+		var columnName = prompt('Enter a column name', 'Column\'\s name');
+  if (columnName !== null) {
 
 		$.ajax({
+
 				url: baseUrl + '/column',
 				method: 'POST',
 				data: {
 					name: columnName
 				},
 				succes: function(response){
-					var column = new Column(response.id, columnName);
+					var column = new Column(response.id, columnName); //creating a new instance of the class Column
 					board.createColumn(column);
 				}
-		});
+
+		}); //end of AJAX request
+
+	}
+
 	});
 
 	function initSortable() {

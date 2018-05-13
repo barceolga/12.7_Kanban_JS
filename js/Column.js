@@ -2,31 +2,30 @@ function Column(id, name) {
 	var self = this;
 
 	this.id = id;
-	this.name = name || "No name given";
-	this.$element = createColumn();
+	this.name = name;
+	this.$element = createColumn(); //Here the created column is allocated and saved.
 
 	function createColumn() {
 
-		// TWORZENIE NOWYCH WĘZŁÓW
-		var $column = $('<div>').addClass('column');
+		// CEARTING NEWS NODS
+
+		var column = $('<div>').addClass('column');
 		var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
 		var $columnCardList = $('<ul>').addClass('column-card-list');
 		var $columnDelete = $('<button>').addClass('column-btn-delete').text('x');
 		var $columnAddCard = $('<button>').addClass('add-card').text('Add a card');
 
-		// PODPINANIE ODPOWIEDNICH ZDARZEŃ POD WĘZŁY
+		// BINDING EVENTS TO THE CONCRETE NODS
+
 		$columnDelete.click(function() {
-			self.deleteColumn();
+			self.removeColumn();
 		});
 
 		$columnAddCard.click(function(event) {
+
 			var cardName = prompt("Enter the name of the card");
 			event.preventDefault();
-			self.createCard(new Card(cardName));
-
-			$.ajaxSetup({
-				headers: myHeaders
-			});
+			//self.createCard(new Card(cardName));
 
 			$.ajax({
 					url: baseUrl + '/card',
@@ -37,39 +36,35 @@ function Column(id, name) {
 					},
 					succes: function(response) {
 						// create a new client side card
-						var card = new Card(response.id, cardName);
-						self.createCard(card);
+							var card = new Card(response.id, cardName);
+							self.addCard(card);
 					}
-			});
+			}); //end of AJAX request
 
 		});
 
 			// KONSTRUOWANIE ELEMENTU KOLUMNY
-		$column.append($columnTitle)
+		column.append($columnTitle)
 			.append($columnDelete)
 			.append($columnAddCard)
 			.append($columnCardList);
-			return $column;
+			return column;
 		}
 	}
 
 Column.prototype = {
-	createCard: function(card) {
-	  this.$element.children('ul').append(card.$element);
+	addCard: function(card) {
+	  	this.$element.children('ul').append(card.$element);
 	},
-	deleteColumn: function() {
-	  var self = this;
+	removeColumn: function() {
+		  var self = this;
 
-		$.ajaxSetup({
-			headers: myHeaders
-		});
-		
-		$.ajax({
-				url: baseUrl + '/column' + self.id,
-				method: 'DELETE',
-				succes: function(response) {
-					self.$element.remove();
-				}
-		});
+			$.ajax({
+					url: baseUrl + '/column/' + self.id,
+					method: 'DELETE',
+					succes: function(response) {
+						self.$element.remove();
+					}
+			});
 	}
 };
