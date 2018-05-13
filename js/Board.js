@@ -15,7 +15,7 @@ $('.create-column')
 		$.ajaxSetup({
 			headers: myHeaders
 		});
-		
+
 		$.ajax({
 				url: baseUrl + '/column',
 				method: 'POST',
@@ -29,9 +29,10 @@ $('.create-column')
 		});
 	});
 
-function initSortable() {
-    $('.card-list').sortable({
-      connectWith: '.card-list',
-      placeholder: 'card-placeholder'
-    }).disableSelection();
-  }
+	function initSortable() {
+		var self = this;
+		$('.column-card-list').sortable({
+			connectWith: '.column-card-list',
+			placeholder: 'card-placeholder'
+		}).disableSelection();
+	}
