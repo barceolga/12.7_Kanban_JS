@@ -1,16 +1,21 @@
 var board = {
 	name: 'Tablica Kanban',
 	createColumn: function(column) {
-	  this.element.append(column.element);
+	  this.$element.append(column.$element);
 	  initSortable();
 	},
-	element: $('#board .column-container')
+	$element: $('#board .column-container')
 };
 
 $('.create-column')
 	.click(function(){
 		var columnName = prompt('Enter a column name');
 		board.createColumn(new Column(columnName));
+
+		$.ajaxSetup({
+			headers: myHeaders
+		});
+		
 		$.ajax({
 				url: baseUrl + '/column',
 				method: 'POST',
