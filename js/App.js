@@ -6,6 +6,13 @@ var myHeaders = {
  	'X-Auth-Token': '4bb08edbc4639c39ee15d95c48a12dc3'
 };
 
+// Function for adding headers to any request we'll make to API
+$.ajaxSetup({
+	headers: myHeaders
+});
+
+console.log($.ajaxSetup())
+
 // Function for creating cards
 
  /*function createCard() {
@@ -48,11 +55,6 @@ function setupCards(col, cards) {
 		col.createCard(cardObj);
 	});
 }
-// Function for adding headers to any request we'll make to API
-
-$.ajaxSetup({
-	headers: myHeaders
-});
 
 // Function for getting resources from API's endpoint board
 
