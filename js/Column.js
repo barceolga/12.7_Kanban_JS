@@ -3,7 +3,7 @@ function Column(id, name) {
 
 	this.id = id;
 	this.name = name || "No name given";
-	this.element = createColumn();
+	this.$element = createColumn();
 
 	function createColumn() {
 
@@ -23,6 +23,11 @@ function Column(id, name) {
 			var cardName = prompt("Enter the name of the card");
 			event.preventDefault();
 			self.createCard(new Card(cardName));
+
+			$.ajaxSetup({
+				headers: myHeaders
+			});
+
 			$.ajax({
 					url: baseUrl + '/card',
 					method: 'POST',
@@ -50,15 +55,20 @@ function Column(id, name) {
 
 Column.prototype = {
 	createCard: function(card) {
-	  this.element.children('ul').append(card.element);
+	  this.$element.children('ul').append(card.$element);
 	},
 	deleteColumn: function() {
 	  var self = this;
+
+		$.ajaxSetup({
+			headers: myHeaders
+		});
+		
 		$.ajax({
 				url: baseUrl + '/column' + self.id,
 				method: 'DELETE',
 				succes: function(response) {
-					self.element.remove();
+					self.$element.remove();
 				}
 		});
 	}
