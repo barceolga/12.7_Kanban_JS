@@ -4,7 +4,7 @@ function Card(id, name) {
 
 	this.id = id;
 	this.name = name || "No name given";
-	//this.element = createCard();
+this.$element = createCard();
 
 	function createCard() {
 		var card = $('<li class="card"></li>');
@@ -24,6 +24,11 @@ function Card(id, name) {
 Card.prototype = {
 	removeCard: function() {
 	  var self = this;
+		
+		$.ajaxSetup({
+			headers: myHeaders
+		});
+
 		$.ajax({
 			url: baseUrl + '/card' + self.id,
 			method: 'DELETE',
