@@ -1,57 +1,229 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900");
 @import url("https://fonts.googleapis.com/css?family=Fira+Mono");
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-body { background-color: #B5E1DE; -ms-flex-direction: column; flex-direction: column; -ms-flex-pack: center; justify-content: center; -ms-flex-align: center; align-items: center; }
+body {
+  background-color: #B5E1DE;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
 
-body .btn-delete, body .board .column-container .column .column-card-list .card .card-btn-delete, body .board .column-container .column .column-btn-delete { height: 40px; width: 40px; text-align: center; border-radius: 10%; background-color: #250240; color: #B5E1DE; font-size: 14px; font-family: "Fira Mono", monospace; font-weight: 800; padding: 10px; text-transform: uppercase; cursor: pointer; transition: 0.7s; }
+body .btn-delete, body .board .column-container .column .column-btn-change, body .board .column-container .column .column-card-list .card .card-btn-delete, body .board .column-container .column .column-card-list .card .card-btn-change, body .board .column-container .column .column-btn-delete {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  border-radius: 10%;
+  background-color: #250240;
+  color: #B5E1DE;
+  font-size: 14px;
+  font-family: "Fira Mono", monospace;
+  font-weight: 800;
+  padding: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.7s;
+}
 
-body .btn-delete:hover, body .board .column-container .column .column-card-list .card .card-btn-delete:hover, body .board .column-container .column .column-btn-delete:hover { background-color: #bc6bfa; color: #250240; }
+body .btn-delete:hover, body .board .column-container .column .column-btn-change:hover, body .board .column-container .column .column-card-list .card .card-btn-delete:hover, body .board .column-container .column .column-card-list .card .card-btn-change:hover, body .board .column-container .column .column-btn-delete:hover {
+  background-color: #bc6bfa;
+  color: #250240;
+}
 
-body .board { height: 100vh; width: 100vw; display: -ms-flexbox; display: flex; -ms-flex-direction: column; flex-direction: column; -ms-flex-pack: center; justify-content: center; -ms-flex-align: center; align-items: center; }
+body .board {
+  height: 100vh;
+  width: 100vw;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
 
-body .board h1 { width: 300px; background-color: #48A7A0; border: 5px solid #003B37; box-shadow: 2px 2px 2px #FFFDC7; font-size: 50px; padding: 25px; font-style: italic; font-weight: 800; color: #003B37; text-shadow: 2px 2px 2px #FFFDC7; text-transform: capitalize; text-align: center; text-transform: capitalize; }
+body .board h1 {
+  width: 300px;
+  background-color: #48A7A0;
+  border: 5px solid #003B37;
+  box-shadow: 2px 2px 2px #FFFDC7;
+  font-size: 50px;
+  padding: 25px;
+  font-style: italic;
+  font-weight: 800;
+  color: #003B37;
+  text-shadow: 2px 2px 2px #FFFDC7;
+  text-transform: capitalize;
+  text-align: center;
+  text-transform: capitalize;
+}
 
-body .board .create-column, body .board .column-container .column .add-card { height: 100px; margin: 50px auto 50px auto; border-radius: 5%; border: none; text-align: center; background-color: #003B37; color: #FFFDC7; font-size: 18px; font-family: "Fira Mono", monospace; font-weight: 800; padding: 15px; cursor: pointer; transition: 0.5s; }
+body .board .create-column, body .board .column-container .column .add-card {
+  height: 100px;
+  margin: 50px auto 50px auto;
+  border-radius: 5%;
+  border: none;
+  text-align: center;
+  background-color: #003B37;
+  color: #FFFDC7;
+  font-size: 18px;
+  font-family: "Fira Mono", monospace;
+  font-weight: 800;
+  padding: 15px;
+  cursor: pointer;
+  transition: 0.5s;
+}
 
-body .board .create-column:hover, body .board .column-container .column .add-card:hover { background-color: #FFFDC7; color: #003B37; }
+body .board .create-column:hover, body .board .column-container .column .add-card:hover {
+  background-color: #FFFDC7;
+  color: #003B37;
+}
 
-body .board .column-container { margin: 200px 50px 0 50px; display: -ms-flexbox; display: flex; -ms-flex-pack: center; justify-content: center; -ms-flex-align: center; align-items: center; height: 85vh; width: 99vw; }
+body .board .column-container {
+  margin: 200px 50px 0 50px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  height: 85vh;
+  width: 99vw;
+}
 
-body .board .column-container .column { position: relative; height: 85vh; width: 33vw; background-color: #FFFDC7; border: 5px solid #250240; }
+body .board .column-container .column {
+  position: relative;
+  height: 85vh;
+  width: 33vw;
+  background-color: #FFFDC7;
+  border: 5px solid #250240;
+}
 
-body .board .column-container .column .column-title { margin-top: 0; width: 100%; height: auto; background-color: #ac74d8; border-bottom: 2px solid #250240; font-size: 25px; font-family: "Fira Mono", monospace; text-transform: uppercase; color: #250240; text-shadow: 2px 2px 2px #FFFDC7; font-weight: 900; text-align: center; padding: 15px; }
+body .board .column-container .column .column-btn-change {
+  margin: 0 auto;
+  width: 120px;
+  height: 40px;
+  margin: 0 auto;
+  text-transform: none;
+}
 
-body .board .column-container .column .column-card-list { list-style-type: none; display: inline-block; margin-right: 100px; min-height: 64vh; min-width: 28vw; }
+body .board .column-container .column .column-title {
+  margin-top: 0;
+  width: 100%;
+  height: auto;
+  background-color: #ac74d8;
+  border-bottom: 2px solid #250240;
+  font-size: 25px;
+  font-family: "Fira Mono", monospace;
+  text-transform: uppercase;
+  color: #250240;
+  text-shadow: 2px 2px 2px #FFFDC7;
+  font-weight: 900;
+  text-align: center;
+  padding: 15px;
+}
 
-body .board .column-container .column .column-card-list .card { margin-right: 50px; min-height: 10vh; width: 28vw; border-radius: 5%; background-color: #D7BCEC; border: 2px solid #ac74d8; }
+body .board .column-container .column .column-card-list {
+  list-style-type: none;
+  display: inline-block;
+  margin-right: 100px;
+  min-height: 64vh;
+  min-width: 28vw;
+}
 
-body .board .column-container .column .column-card-list .card .card-description { font-size: 16px; font-family: "Montserrat", sans-serif; font-weight: 600; color: #250240; text-shadow: 2px 1px #FFFDCC; text-align: center; padding: 10px; margin-top: 0; }
+body .board .column-container .column .column-card-list .card {
+  margin-right: 50px;
+  min-height: 10vh;
+  width: 28vw;
+  border-radius: 5%;
+  background-color: #D7BCEC;
+  border: 2px solid #ac74d8;
+}
 
-body .board .column-container .column .column-card-list .card .card-btn-delete { margin: 0; }
+body .board .column-container .column .column-card-list .card .card-description {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: #250240;
+  text-shadow: 2px 1px #FFFDCC;
+  text-align: center;
+  padding: 10px;
+  margin-top: 0;
+}
 
-body .board .column-container .column .column-btn-delete { margin: 0 10px; }
+body .board .column-container .column .column-card-list .card .card-btn-delete {
+  margin: 0;
+}
 
-body .board .column-container .column .add-card { height: 60px; margin: 0 auto; background-color: #48A7A0; color: #FFFDC7; text-transform: none; transition: 0.5s; text-shadow: 2px 2px 2px #250240; }
+body .board .column-container .column .column-card-list .card .card-btn-change {
+  width: 120px;
+  height: 40px;
+  margin: 0;
+}
 
-body .board .column-container .column .add-card:hover { background-color: #a6d9d6; color: #003B37; text-shadow: none; }
+body .board .column-container .column .column-btn-delete {
+  margin: 0 10px;
+}
 
-body .board .card-placeholder { width: 28vw; min-height: 10vh; border: 2px dotted #026A62; background-color: #B5E1DE; }
+body .board .column-container .column .add-card {
+  height: 60px;
+  margin: 0 auto;
+  background-color: #48A7A0;
+  color: #FFFDC7;
+  text-transform: none;
+  transition: 0.5s;
+  text-shadow: 2px 2px 2px #250240;
+}
 
-@keyframes card-animation { 0% { background-color: #D7BCEC;
+body .board .column-container .column .add-card:hover {
+  background-color: #a6d9d6;
+  color: #003B37;
+  text-shadow: none;
+}
+
+body .board .card-placeholder {
+  width: 28vw;
+  min-height: 10vh;
+  border: 2px dotted #026A62;
+  background-color: #B5E1DE;
+}
+
+@keyframes card-animation {
+  0% {
+    background-color: #D7BCEC;
     color: #5F2900;
-    transform: matrix(1, 0, 0, 1, 0, 0); }
-  25% { background-color: #ac74d8;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+  }
+  25% {
+    background-color: #ac74d8;
     color: #cc5800;
-    transform: matrix(1.25, 0, 0.25, 1.25, 0, 0); }
-  50% { background-color: #ac74d8;
+    transform: matrix(1.25, 0, 0.25, 1.25, 0, 0);
+  }
+  50% {
+    background-color: #ac74d8;
     color: #ffb780;
-    transform: matrix(1.5, 0, 0.5, 1.5, 0, 0); }
-  75% { background-color: #ac74d8;
+    transform: matrix(1.5, 0, 0.5, 1.5, 0, 0);
+  }
+  75% {
+    background-color: #ac74d8;
     color: #cc5800;
-    transform: matrix(1.25, 0, 0.25, 1.25, 0, 0); }
-  100% { background-color: #D7BCEC;
+    transform: matrix(1.25, 0, 0.25, 1.25, 0, 0);
+  }
+  100% {
+    background-color: #D7BCEC;
     color: #5F2900;
-    transform: matrix(1, 0, 0, 1, 0, 0); } }
+    transform: matrix(1, 0, 0, 1, 0, 0);
+  }
+}
 
-body .board .ui-sortable-helper { animation: card-animation 1s ease-in-out 1s infinite normal; transition: background-color 1s linear, color 1s linear, transform 1s linear; }
+body .board .ui-sortable-helper {
+  animation: card-animation 1s ease-in-out 1s infinite normal;
+  transition: background-color 1s linear, color 1s linear, transform 1s linear;
+}
+/*# sourceMappingURL=style.css.map */
