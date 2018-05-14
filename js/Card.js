@@ -1,6 +1,7 @@
-// KLASA KANBAN CARD
+//  KANBAN CARD CLASS
 function Card(id, name) {
 	var self = this;
+	//this.Column.id = Column.id;
 
 	this.id = id;
 	this.name = name;
@@ -32,7 +33,7 @@ this.$element = createCard();
 							},
 							method: 'PUT',
 							success: function(response) {
-								var card = new Card(response.id, newCardName);
+								var card = new Card(response.id, newCardName, Column.id);
 								self.$element.find($('.card-description').text(self.description).text(newCardName));
 							}
 					}); //end of AJAX request
