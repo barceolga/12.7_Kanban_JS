@@ -9,25 +9,27 @@ var board = {
 
 $('.create-column')
 	.click(function(){
-		var columnName = prompt('Enter a column name', 'Column\'\s name');
-  if (columnName !== null) {
+		var columnName = prompt('Enter a column name.');
+  if ((columnName === null || columnName ==="")) {
 
-		$.ajax({
+		alert("You need to enter a column name in order to create the column.");
 
-				url: baseUrl + '/column',
-				method: 'POST',
-				data: {
-					name: columnName
-				},
-				succes: function(response){
-					var column = new Column(response.id, columnName); //creating a new instance of the class Column
-					board.createColumn(column);
-				}
+	} else {
 
-		}); //end of AJAX request
+				$.ajax({
 
-	}
+						url: baseUrl + '/column',
+						method: 'POST',
+						data: {
+							name: columnName
+						},
+						success: function(response){
+							var column = new Column(response.id, columnName); //creating a new instance of the class Column
+							board.createColumn(column);
+						}
 
+				}); //end of AJAX request
+		}
 	});
 
 	function initSortable() {

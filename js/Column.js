@@ -7,12 +7,13 @@ function Column(id, name) {
 
 	function createColumn() {
 
-		// CEARTING NEWS NODS
+		// CREATING NEWS NODS
 
 		var column = $('<div>').addClass('column');
 		var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
 		var $columnCardList = $('<ul>').addClass('column-card-list');
 		var $columnDelete = $('<button>').addClass('column-btn-delete').text('x');
+		var $changeName = $('<button>').addClass('column-btn-change').text('Change name');
 		var $columnAddCard = $('<button>').addClass('add-card').text('Add a card');
 
 		// BINDING EVENTS TO THE CONCRETE NODS
@@ -25,26 +26,51 @@ function Column(id, name) {
 
 			var cardName = prompt("Enter the name of the card");
 			event.preventDefault();
-			//self.createCard(new Card(cardName));
 
-			$.ajax({
-					url: baseUrl + '/card',
-					method: 'POST',
-					data: {
-								name: cardName,
-								bootcamp_kanban_column_id: self.id
-					},
-					succes: function(response) {
-						// create a new client side card
-							var card = new Card(response.id, cardName);
-							self.addCard(card);
-					}
-			}); //end of AJAX request
+			if ((cardName === null) || (cardName ==="")) {
+				alert("You have to enter a card name in order to create a card.");
+			} else {
+				$.ajax({
+						url: baseUrl + '/card',
+						method: 'POST',
+						data: {
+									name: cardName,
+									bootcamp_kanban_column_id: self.id
+						},
+						success: function(response) {
+							// create a new client side card
+								var card = new Card(response.id, cardName);
+								self.addCard(card);
+						}
+				}); //end of AJAX request
+			}
 
 		});
+		$changeName.click(function(event)  {
 
-			// KONSTRUOWANIE ELEMENTU KOLUMNY
+						var newColumnName = prompt("Modify the name of the column");
+						event.preventDefault();
+
+						if ((newColumnName === null) || (newColumnName ==="")) {
+							alert("You have to enter a new name in order to change column's name.");
+						} else {
+							$.ajax({
+									url: baseUrl + '/column/' + self.id,
+									data: {
+										id: self.id,
+										name: newColumnName
+									},
+									method: 'PUT',
+									success: function(response) {
+										var col = new Column(response.id, newColumnName);
+									}
+							}); //end of AJAX request
+						}
+				});
+
+			// Building the column's element
 		column.append($columnTitle)
+			.append($changeName)
 			.append($columnDelete)
 			.append($columnAddCard)
 			.append($columnCardList);
@@ -53,18 +79,23 @@ function Column(id, name) {
 	}
 
 Column.prototype = {
+
 	addCard: function(card) {
 	  	this.$element.children('ul').append(card.$element);
 	},
+
 	removeColumn: function() {
 		  var self = this;
 
 			$.ajax({
 					url: baseUrl + '/column/' + self.id,
 					method: 'DELETE',
-					succes: function(response) {
+					success: function(response) {
 						self.$element.remove();
 					}
 			});
-	}
+	}/*,
+		changeCardName: function(card) {
+						this.$element.text(newCardName);
+		}*/
 };
