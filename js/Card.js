@@ -16,8 +16,8 @@ this.$element = createCard();
 				self.removeCard();
 			});
 
-			/*$cardChangeBtn.click(function(event){
-				var newCardName = prompt("Enter the name of the card");
+			$cardChangeBtn.click(function(event){
+				var newCardName = prompt("Modify the name of the card");
 				event.preventDefault();
 
 				if ((newCardName === null) || (newCardName ==="")) {
@@ -25,18 +25,19 @@ this.$element = createCard();
 				} else {
 					$.ajax({
 							url: baseUrl + '/card/' + self.id,
-							method: 'PUT',
 							data: {
-										bootcamp_kanban_column_id: self.id
+										id: self.id,
+										name: newCardName
 							},
+							method: 'PUT',
 							success: function(response) {
-								var card = new Card(response.id);
-								self.changeCardName(card);
+								var card = new Card(response.id, newCardName);
+								self.find($('.card-description').text(self.name).text(newCardName));
+								//console.log(self.find($('.card-description')));
 							}
 					}); //end of AJAX request
 				}
-
-			});*/
+			});
 
 			$card.append($cardDeleteBtn);
 			$cardDescription.text(self.name);
