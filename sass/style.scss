@@ -94,6 +94,14 @@ body {
             background-color: $ligth-sun;
             border: 5px solid $dark-violet;
 
+            .column-btn-change {
+              margin: 0 auto;
+              @extend .btn-delete;
+              width: 120px;
+              height:40px;
+              margin: 0 auto;
+              text-transform: none;
+            }
               .column-title {
                 margin-top: 0;
                 width: 100%;
@@ -141,6 +149,12 @@ body {
                       margin: 0;
                     }
 
+                    .card-btn-change {
+                      @extend .btn-delete;
+                      width: 120px;
+                      height:40px;
+                      margin: 0;
+                    }
 
                   }
               }
