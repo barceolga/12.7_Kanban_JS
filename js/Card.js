@@ -32,7 +32,7 @@ this.$element = createCard();
 							method: 'PUT',
 							success: function(response) {
 								var card = new Card(response.id, newCardName);
-								self.find($('.card-description').text(self.name).text(newCardName));
+								self.$element.find($('.card-description').text(self.name).text(newCardName));
 								//console.log(self.find($('.card-description')));
 							}
 					}); //end of AJAX request
