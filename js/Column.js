@@ -62,7 +62,7 @@ function Column(id, name) {
 									},
 									method: 'PUT',
 									success: function(response) {
-										//var col = new Column(response.id, newColumnName);
+										var col = new Column(response.id, newColumnName);
 										self.$element.find($('.column-title').text(self.name).text(newColumnName));
 									}
 							}); //end of AJAX request
