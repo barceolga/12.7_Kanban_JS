@@ -27,13 +27,13 @@ this.$element = createCard();
 							url: baseUrl + '/card/' + self.id,
 							data: {
 										id: self.id,
-										name: newCardName
+										name: newCardName,
+										bootcamp_kanban_column_id: Column.id
 							},
 							method: 'PUT',
 							success: function(response) {
-								var card = new Card(response.id, newCardName);
-								self.$element.find($('.card-description').text(self.name).text(newCardName));
-								//console.log(self.find($('.card-description')));
+								//var card = new Card(response.id, newCardName);
+								self.$element.find($('.card-description').text(self.description).text(newCardName));
 							}
 					}); //end of AJAX request
 				}
