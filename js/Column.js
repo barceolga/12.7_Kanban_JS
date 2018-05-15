@@ -22,10 +22,15 @@ function Column(id, name) {
 			self.removeColumn();
 		});
 
+		$changeName.click(function() {
+			self.changeColumnName();
+				//event.preventDefault();
+		});
+
 		$columnAddCard.click(function(event) {
 
 			var cardName = prompt("Enter the name of the card");
-			event.preventDefault();
+			//event.preventDefault();
 
 			if ((cardName === null) || (cardName ==="")) {
 				alert("You have to enter a card name in order to create a card.");
@@ -44,32 +49,11 @@ function Column(id, name) {
 						}
 				}); //end of AJAX request
 			}
-
 		});
-		$changeName.click(function(event)  {
-
-						var newColumnName = prompt("Modify the name of the column");
-						event.preventDefault();
-
-						if ((newColumnName === null) || (newColumnName ==="")) {
-							alert("You have to enter a new name in order to change column's name.");
-						} else {
-							$.ajax({
-									url: baseUrl + '/column/' + self.id,
-									data: {
-										id: self.id,
-										name: newColumnName
-									},
-									method: 'PUT',
-									success: function(response) {
-										var col = new Column(response.id, newColumnName);
-										self.$element.find($('.column-title').text(self.name).text(newColumnName));
-									}
-							}); //end of AJAX request
-						}
-				});
+console.log(self.id);
 
 			// Building the column's element
+
 		column.append($columnTitle)
 			.append($changeName)
 			.append($columnDelete)
@@ -95,8 +79,29 @@ Column.prototype = {
 						self.$element.remove();
 					}
 			});
-	}/*,
-		changeCardName: function(card) {
-						this.$element.text(newCardName);
-		}*/
+			console.log(self.id);
+	},
+		changeColumnName: function() {
+			var self = this;
+						var newColumnName = prompt("Modify the name of the column");
+						//event.preventDefault();
+
+						if ((newColumnName === null) || (newColumnName ==="")) {
+							alert("You have to enter a new name in order to change column's name.");
+						} else {
+							$.ajax({
+									url: baseUrl + '/column/' + self.id,
+									data: {
+										id: self.id,
+										name: newColumnName
+									},
+									method: 'PUT',
+									success: function(response) {
+										var newCol = new Column(response.id, newColumnName);
+										self.$element.find($('.column-title').text(self.name).text(newColumnName));
+									}
+							}); //end of AJAX request
+						}
+				console.log(self.id);
+		}
 };
