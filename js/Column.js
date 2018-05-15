@@ -96,7 +96,6 @@ Column.prototype = {
 									},
 									method: 'PUT',
 									success: function(response) {
-										//var newCol = new Column(response.id, newColumnName);
 										self.$element.find('.column-title').text(self.name).text(newColumnName);
 									}
 							}); //end of AJAX request
