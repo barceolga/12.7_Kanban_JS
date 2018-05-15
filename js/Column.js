@@ -22,9 +22,9 @@ function Column(id, name) {
 			self.removeColumn();
 		});
 
-		$changeName.click(function() {
+		$changeName.click(function(event) {
 			self.changeColumnName();
-				//event.preventDefault();
+				event.preventDefault();
 		});
 
 		$columnAddCard.click(function(event) {
@@ -84,7 +84,6 @@ Column.prototype = {
 		changeColumnName: function() {
 			var self = this;
 						var newColumnName = prompt("Modify the name of the column");
-						//event.preventDefault();
 
 						if ((newColumnName === null) || (newColumnName ==="")) {
 							alert("You have to enter a new name in order to change column's name.");
@@ -97,8 +96,8 @@ Column.prototype = {
 									},
 									method: 'PUT',
 									success: function(response) {
-										var newCol = new Column(response.id, newColumnName);
-										self.$element.find($('.column-title').text(self.name).text(newColumnName));
+										//var newCol = new Column(response.id, newColumnName);
+										self.$element.find('.column-title').text(self.name).text(newColumnName);
 									}
 							}); //end of AJAX request
 						}
