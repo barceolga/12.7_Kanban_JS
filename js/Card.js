@@ -18,14 +18,14 @@ this.$element = createCard();
 				self.removeCard();
 			});
 
-			$cardChangeBtn.click(function(){
+			$cardChangeBtn.click(function(event){
 				self.changeCardName();
-				//event.preventDefault();
+				event.preventDefault();
 			});
 
 			console.log(self.id);
 			console.log(Column.bootcamp_kanban_column_id);
-			
+
 			$card.append($cardDeleteBtn);
 			$cardDescription.text(self.name);
 			$card.append($cardDescription);
@@ -49,7 +49,7 @@ Card.prototype = {
 		changeCardName: function() {
 			var self = this;
 			var newCardName = prompt("Modify the name of the card");
-			//event.preventDefault();
+
 
 			if ((newCardName === null) || (newCardName ==="")) {
 				alert("You have to enter a new name in order to change the card's name.");
@@ -63,8 +63,8 @@ Card.prototype = {
 						},
 						method: 'PUT',
 						success: function(response) {
-							var newCard = new Card(response.id, newCardName, Column.bootcamp_kanban_column_id);
-							self.$element.find($('.card-description').text(self.description).text(newCardName));
+							//var newCard = new Card(response.id, newCardName, Column.bootcamp_kanban_column_id);
+							self.$element.find('.card-description').text(self.description).text(newCardName);
 						}
 				});
 			}
