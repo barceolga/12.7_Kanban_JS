@@ -2,7 +2,7 @@
 
 function Card(id, name, bootcamp_kanban_column_id) {
 	var self = this;
-	Column.bootcamp_kanban_column_id = bootcamp_kanban_column_id;
+	this.bootcamp_kanban_column_id = bootcamp_kanban_column_id;
 
 	this.id = id;
 	this.name = name;
@@ -59,11 +59,11 @@ Card.prototype = {
 						data: {
 									id: self.id,
 									name: newCardName,
-									bootcamp_kanban_column_id: Column.bootcamp_kanban_column_id
+									bootcamp_kanban_column_id: self.bootcamp_kanban_column_id
 						},
 						method: 'PUT',
 						success: function(response) {
-							//var newCard = new Card(response.id, newCardName, Column.bootcamp_kanban_column_id);
+							//var newCard = new Card(response.id, newCardName, self.bootcamp_kanban_column_id);
 							self.$element.find('.card-description').text(self.description).text(newCardName);
 						}
 				});
