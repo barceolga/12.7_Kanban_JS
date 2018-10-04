@@ -19,11 +19,13 @@ function Column(id, name) {
 		// BINDING EVENTS TO THE CONCRETE NODS
 
 		$columnDelete.click(function() {
+			$columnCardList.effect("drop", "slow");
 			self.removeColumn();
 		});
 
 		$changeName.click(function(event) {
 			self.changeColumnName();
+			$columnTitle.effect("slide", "slow");
 				event.preventDefault();
 		});
 
