@@ -12,19 +12,20 @@ body {
       justify-content: center;
   -ms-flex-align: center;
       align-items: center;
+  overflow: auto;
 }
 
 body .btn-delete, body .board .column-container .column .column-btn-change, body .board .column-container .column .column-card-list .card .card-btn-delete, body .board .column-container .column .column-card-list .card .card-btn-change, body .board .column-container .column .column-btn-delete, body .board .column-container .column .add-card {
-  height: 40px;
-  width: 40px;
+  height: 32px;
+  width: 32px;
   text-align: center;
   border-radius: 10%;
-  background-color: #250240;
-  color: #B5E1DE;
-  font-size: 14px;
+  background-color: #008075;
+  color: #fff;
+  font-size: 12px;
   font-family: "Fira Mono", monospace;
   font-weight: 800;
-  padding: 10px;
+  padding: 8px;
   text-transform: uppercase;
   cursor: pointer;
   transition: 0.7s;
@@ -32,12 +33,12 @@ body .btn-delete, body .board .column-container .column .column-btn-change, body
 
 body .btn-delete:hover, body .board .column-container .column .column-btn-change:hover, body .board .column-container .column .column-card-list .card .card-btn-delete:hover, body .board .column-container .column .column-card-list .card .card-btn-change:hover, body .board .column-container .column .column-btn-delete:hover, body .board .column-container .column .add-card:hover {
   background-color: #a6d9d6;
-  color: #250240;
+  color: #001a18;
 }
 
 body .board {
   height: auto;
-  width: 100vw;
+  width: 100%;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
@@ -46,11 +47,12 @@ body .board {
       justify-content: center;
   -ms-flex-align: center;
       align-items: center;
+  overflow: hidden;
 }
 
 body .board h1 {
   width: 600px;
-  background-color: #404040;
+  background-color: #990000;
   box-shadow: 10px 10px 1px #003B37;
   font-size: 50px;
   padding: 25px;
@@ -66,10 +68,10 @@ body .board h1 {
 body .board .create-column {
   height: 60px;
   margin: 25px auto 25px auto;
-  border-radius: 25px;
+  border-radius: 30px;
   border: none;
   text-align: center;
-  background-color: #404040;
+  background-color: #990000;
   color: #FFFDC7;
   font-size: 18px;
   font-family: "Fira Mono", monospace;
@@ -81,7 +83,7 @@ body .board .create-column {
 
 body .board .create-column:hover {
   background-color: #999999;
-  color: #404040;
+  color: #990000;
 }
 
 body .board .column-container {
@@ -100,8 +102,8 @@ body .board .column-container .column {
   position: relative;
   height: auto;
   width: 30vw;
-  background-color: #999999;
-  box-shadow: 10px 10px 1px #250240;
+  background-color: #ffaa80;
+  box-shadow: 10px 10px 1px #001a18;
   margin: 10px;
 }
 
@@ -119,11 +121,11 @@ body .board .column-container .column .column-title {
   width: 100%;
   height: auto;
   font-size: 25px;
-  font-family: "Fira Mono", monospace;
+  font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
-  color: #FFFDC7;
-  text-shadow: 2px 2px 2px #250240;
-  font-weight: 900;
+  color: #001a18;
+  text-shadow: 2px 2px 2px #999999;
+  font-weight: 700;
   text-align: center;
   padding: 15px;
 }
@@ -132,24 +134,25 @@ body .board .column-container .column .column-card-list {
   list-style-type: none;
   display: inline-block;
   margin-right: 100px;
-  max-height: 60vh;
+  max-height: auto;
   min-width: 25vw;
 }
 
 body .board .column-container .column .column-card-list .card {
   margin-right: 50px;
-  min-height: 10%;
+  height: auto;
   width: 25vw;
-  background: linear-gradient(to bottom left, #ccc, #999999);
+  background: linear-gradient(to bottom left, #fff, #ccc);
   box-shadow: 10px 10px 1px #003B37;
   margin-bottom: 15px;
+  position: relative;
 }
 
 body .board .column-container .column .column-card-list .card .card-description {
-  font-size: 16px;
+  font-size: 20px;
   font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  color: #250240;
+  font-weight: 700;
+  color: #001a18;
   text-shadow: 2px 1px #FFFDCC;
   text-align: center;
   padding: 10px;
@@ -158,13 +161,18 @@ body .board .column-container .column .column-card-list .card .card-description 
 
 body .board .column-container .column .column-card-list .card .card-btn-delete {
   margin: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 body .board .column-container .column .column-card-list .card .card-btn-change {
   width: 120px;
   height: 40px;
-  margin: 0;
+  margin-left: 33%;
+  margin-bottom: 5px;
   text-transform: none;
+  border-radius: 20px;
 }
 
 body .board .column-container .column .column-btn-delete {
@@ -172,13 +180,10 @@ body .board .column-container .column .column-btn-delete {
 }
 
 body .board .column-container .column .add-card {
-  background-color: #404040;
-  color: #FFFDC7;
   text-transform: Uppercase;
-  font-size: 14px;
-  padding: 10px;
+  font-size: 12px;
+  padding: 8px;
   transition: 0.5s;
-  text-shadow: 2px 2px 2px #250240;
 }
 
 body .board .column-container .column .add-card:hover {
