@@ -11,7 +11,7 @@ this.$element = createCard();
 	function createCard() {
 		var $card = $('<li>').addClass('card');
 		var $cardDescription = $('<p>').addClass('card-description').text(self.description);
-		var $cardDeleteBtn = $('<button>').addClass('card-btn-delete').text('x');
+		var $cardDeleteBtn = $('<button>').addClass('card-btn-delete').html('<i class="fa fa-trash" aria-hidden="true"></i>');
 		var $cardChangeBtn = $('<button>').addClass('card-btn-change').text('Change name');
 
 			$cardDeleteBtn.click(function(){
@@ -63,7 +63,6 @@ Card.prototype = {
 						},
 						method: 'PUT',
 						success: function(response) {
-							//var newCard = new Card(response.id, newCardName, self.bootcamp_kanban_column_id);
 							self.$element.find('.card-description').text(self.description).text(newCardName);
 						}
 				});

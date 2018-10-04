@@ -12,9 +12,9 @@ function Column(id, name) {
 		var column = $('<div>').addClass('column');
 		var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
 		var $columnCardList = $('<ul>').addClass('column-card-list');
-		var $columnDelete = $('<button>').addClass('column-btn-delete').text('x');
+		var $columnDelete = $('<button>').addClass('column-btn-delete').html('<i class="fa fa-trash" aria-hidden="true"></i>');
 		var $changeName = $('<button>').addClass('column-btn-change').text('Change name');
-		var $columnAddCard = $('<button>').addClass('add-card').text('Add a card');
+		var $columnAddCard = $('<button>').addClass('add-card').html('<i class="fa fa-plus" aria-hidden="true"></i>');
 
 		// BINDING EVENTS TO THE CONCRETE NODS
 
