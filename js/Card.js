@@ -15,11 +15,13 @@ this.$element = createCard();
 		var $cardChangeBtn = $('<button>').addClass('card-btn-change').text('Change name');
 
 			$cardDeleteBtn.click(function(){
+				$cardDescription.effect("drop", "slow");
 				self.removeCard();
 			});
 
 			$cardChangeBtn.click(function(event){
 				self.changeCardName();
+				$cardDescription.effect("bounce", "fast");
 				event.preventDefault();
 			});
 
