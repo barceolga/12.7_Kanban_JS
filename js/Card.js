@@ -15,13 +15,12 @@ this.$element = createCard();
 		var $cardChangeBtn = $('<button>').addClass('card-btn-change').text('Change name');
 
 			$cardDeleteBtn.click(function(){
-				$cardDescription.effect("drop", "slow");
+				$card.effect("drop", "slow");
 				self.removeCard();
 			});
 
 			$cardChangeBtn.click(function(event){
 				self.changeCardName();
-				$cardDescription.effect("bounce", "fast");
 				event.preventDefault();
 			});
 
@@ -65,7 +64,7 @@ Card.prototype = {
 						},
 						method: 'PUT',
 						success: function(response) {
-							self.$element.find('.card-description').text(self.description).text(newCardName);
+							self.$element.find('.card-description').text(self.description).text(newCardName).effect("slide", "fast");
 						}
 				});
 			}
