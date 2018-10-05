@@ -2,18 +2,20 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono');
 
 $Mont_font: "Montserrat", sans-serif;
-$Fira_font: "Fira Mono", monospace;
-$dark-violet: #250240;
 $ligth-sun: #FFFDC7;
 $deep-sea: #001a18;
-$sea-blue: #008075;
+$sea-blue: #004d4d;
+
+$phone_portrait: "(max-width: 767px) and (orientation: portrait)";
+$phone_landscape: "(max-width: 767px) and (orientation: landscape)";
+$tablet: "(min-width: 768px) and (max-width: 991px)";
 
 
 * {
   box-sizing: border-box;
 }
 body {
-    background: radial-gradient(#fff 40%, #ccc 60%);
+    background: radial-gradient(#fff, #f2f2f2, #ccc, #a6a6a6, #999, #777);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -24,17 +26,17 @@ body {
       width: 32px;
       text-align: center;
       border-radius: 10%;
+      border: none;
       background-color: $sea-blue;
       color: #fff;
       font-size: 12px;
-      font-family: $Fira_font;
       font-weight: 800;
       padding: 8px;
       text-transform: uppercase;
       cursor: pointer;
       transition: 0.7s;
       &:hover{
-        background-color: #a6d9d6;
+        background-color: #5ebab4;
         color: $deep-sea;
       }
     }
@@ -49,18 +51,20 @@ body {
     overflow: hidden;
 
       h1 {
-        width: 600px;
+        width: 40%;
         background-color: #990000;
         box-shadow: 10px 10px 1px #003B37;
         font-size: 50px;
         padding: 25px;
+        font-family: $Mont_font;
         font-style: italic;
-        font-weight: 800;
+        font-weight: 600;
         color: $ligth-sun;
         text-shadow: 2px 4px 4px #003B37;
         text-transform: capitalize;
         text-align: center;
         text-transform: capitalize;
+        margin: 25px auto;
       }
 
     .create-column {
@@ -72,8 +76,8 @@ body {
       background-color: #990000;
       color: $ligth-sun;
       font-size: 18px;
-      font-family: $Fira_font;
-      font-weight: 800;
+      font-family: $Mont_font;
+      font-weight: 600;
       padding: 15px;
       cursor: pointer;
       transition: 0.5s;
@@ -84,7 +88,7 @@ body {
     }
 
     .column-container {
-        margin: 100px 50px;
+        margin: 25px 50px 50px 50px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -105,7 +109,7 @@ body {
               border-radius: 15px;
               width: 120px;
               height: 40px;
-              margin: 0 10px 0 25%;
+              margin: 0 10px;
               text-transform: none;
             }
               .column-title {
@@ -131,10 +135,10 @@ body {
 
                   .card {
                     margin-right: 50px;
-                    height: auto;
+                    height: 120px;
                     width: 25vw;
                     background: linear-gradient(to bottom left, #fff, #ccc);
-                    box-shadow: 10px 10px 1px #003B37;
+                    box-shadow: 10px 10px 1px $deep-sea;;
                     margin-bottom: 15px;
                     position: relative;
 
@@ -145,16 +149,14 @@ body {
                       color: $deep-sea;
                       text-shadow: 2px 1px #FFFDCC;
                       text-align: center;
-                      padding: 10px;
-                      margin-top: 0;
+                      padding: 0px;
+                      margin: 10px auto;
                     }
 
                     .card-btn-delete {
                       @extend .btn-delete;
-                      margin: 0;
-                      position: absolute;
-                      top: 0;
-                      right: 0;
+                      margin-left: 85%;
+                      float: right;
                     }
 
                     .card-btn-change {
@@ -172,7 +174,7 @@ body {
 
               .column-btn-delete {
                 @extend .btn-delete;
-                margin: 10px;
+                margin: 0;
               }
 
               .add-card {
@@ -181,6 +183,7 @@ body {
                 font-size: 12px;
                 padding: 8px;
                 transition: 0.5s;
+                margin-left: 27%;
                    &:hover{
                      background-color: #a6d9d6;
                      color: #003B37;
@@ -191,36 +194,32 @@ body {
         }
 
       .card-placeholder {
-        width: 28vw;
-        min-height: 10vh;
-        border: 2px dotted #026A62;
-        background-color: #B5E1DE;
+        width: 25vw;
+        height: 100px;
+        border: 2px inset $deep-sea;
+        background-color: #5ebab4;
         }
+      .column-placeholder {
+        height: auto;
+        width: 30vw;
+        border: 2px inset $deep-sea;
+        background-color: #5ebab4;
+      }
 
         @keyframes card-animation {
           0% {
-              background-color: #D7BCEC;
-              color : #5F2900;
               transform: matrix(1, 0, 0, 1, 0, 0 );
           }
           25% {
-              background-color: #ac74d8;
-              color : #cc5800;
               transform: matrix(1.25, 0, 0.25, 1.25, 0, 0 );
           }
           50% {
-              background-color: #ac74d8;
-              color: #ffb780;
               transform: matrix(1.5, 0, 0.5, 1.5, 0, 0 );
           }
           75% {
-              background-color: #ac74d8;
-              color : #cc5800;
               transform: matrix(1.25, 0, 0.25, 1.25, 0, 0 );
           }
           100% {
-              background-color: #D7BCEC;
-              color: #5F2900;
               transform: matrix(1, 0, 0, 1, 0, 0 );
           }
         }
@@ -229,5 +228,224 @@ body {
           animation: card-animation 1s ease-in-out 1s infinite normal;
           transition: background-color 1s linear, color 1s linear, transform 1s linear;
         }
+    }
+}
+@media #{$phone_portrait} {
+body {
+  .btn-delete {
+    height: 22px;
+    width: 22px;
+    font-size: 10px;
+    padding: 7px;
+  }
+  .board {
+    h1 {
+      width: 90%;
+      font-size: 35px;
+      padding: 16.66px;
+      margin: 12.5px auto;
+    }
+    .create-column {
+      font-size: 12px;
+      padding: 10px;
+      height: 40px;
+      border-radius: 20px;
+    }
+    .column-container {
+      flex-direction: column;
+      .column {
+        width: 90vw;
+        .column-title {
+          font-size: 18px;
+          padding: 10px;
+        }
+        .add-card {
+          margin-left: 27%;
+          margin-bottom: 15px;
+        }
+        .column-btn-change {
+          height: 30px;
+          width: 90px;
+          margin-bottom: 10px;
+        }
+        .column-btn-delete {
+          margin-bottom: 15px;
+        }
+        .column-card-list {
+          padding-left: 30px;
+          .card {
+            width: 75vw;
+            margin-right: 5vw;
+            margin-bottom: 10px;
+            box-shadow: 5px 5px 1px $deep-sea;
+            .card-description {
+              font-size: 14px;
+              padding: 6.66px;
+              margin: 15px auto;
+            }
+            .card-btn-change {
+              height: 30px;
+              width: 90px;
+            }
+          }
+        }
+      }
+    }
+      .card-placeholder {
+        width: 75vw;
+      }
+    }
+  }
+}
+@media #{$phone_landscape} {
+  body {
+    .btn-delete {
+      height: 22px;
+      width: 22px;
+      font-size: 10px;
+      padding: 7px;
+    }
+    .board {
+      h1 {
+        width: 60%;
+        font-size: 35px;
+        padding: 16.66px;
+        margin: 12.5px auto;
+      }
+      .create-column {
+        font-size: 12px;
+        padding: 10px;
+        height: 40px;
+        border-radius: 20px;
+      }
+      .column-container {
+        flex-direction: row;
+        .column {
+          width: 30vw;
+          .column-title {
+            font-size: 18px;
+            padding: 10px;
+          }
+          .add-card {
+            margin-left: 10%;
+            margin-bottom: 15px;
+          }
+          .column-btn-change {
+            height: 30px;
+            width: 90px;
+            margin-bottom: 10px;
+          }
+          .column-btn-delete {
+            margin-bottom: 15px;
+          }
+          .column-card-list {
+            padding-left: 10px;
+            .card {
+              width: 25vw;
+              margin-right: 2.5vw;
+              margin-bottom: 10px;
+              box-shadow: 5px 5px 1px $deep-sea;
+              display: flex;
+              flex-direction: column;
+              .card-description {
+                font-size: 14px;
+                padding: 0;
+                margin: 0 20px;
+              }
+              .card-btn-change {
+                height: 30px;
+                width: 90px;
+                position: absolute;
+                bottom: 5px;
+                margin-left: 20%;
+              }
+              .card-btn-delete {
+                margin-left: 85%;
+              }
+            }
+          }
+        }
+      }
+        .card-placeholder {
+          width: 75vw;
+        }
+      }
+    }
+}
+
+@media #{$tablet} {
+  body {
+    .btn-delete {
+      height: 22px;
+      width: 22px;
+      font-size: 10px;
+      padding: 7px;
+    }
+    .board {
+      h1 {
+        width: 60%;
+        font-size: 40px;
+        padding: 16.66px;
+        margin: 12.5px auto;
+      }
+      .create-column {
+        font-size: 15px;
+        padding: 12px;
+        height: 45px;
+        border-radius: 22.5px;
+      }
+      .column-container {
+        flex-direction: row;
+        .column {
+          width: 30vw;
+          .column-title {
+            font-size: 20px;
+            padding: 11px;
+          }
+          .add-card {
+            margin-left: 10%;
+            margin-bottom: 15px;
+          }
+          .column-btn-change {
+            height: 30px;
+            width: 90px;
+            margin-bottom: 10px;
+            font-size: 11px;
+          }
+          .column-btn-delete {
+            margin-bottom: 15px;
+          }
+          .column-card-list {
+            padding-left: 10px;
+            .card {
+              width: 25vw;
+              margin-right: 2.5vw;
+              margin-bottom: 10px;
+              box-shadow: 5px 5px 1px #003B37;
+              display: flex;
+              flex-direction: column;
+              .card-description {
+                font-size: 14px;
+                padding: 0;
+                margin: 0 20px;
+              }
+              .card-btn-change {
+                height: 30px;
+                width: 90px;
+                position: absolute;
+                bottom: 5px;
+                margin-left: 25%;
+              }
+              .card-btn-delete {
+                margin-left: 88%;
+              }
+            }
+          }
+        }
+      }
+        .card-placeholder {
+          width: 75vw;
+        }
+      }
     }
 }

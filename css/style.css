@@ -1,61 +1,448 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900");
 @import url("https://fonts.googleapis.com/css?family=Fira+Mono");
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-body { background: radial-gradient(#fff 40%, #ccc 60%); -ms-flex-direction: column; flex-direction: column; -ms-flex-pack: center; justify-content: center; -ms-flex-align: center; align-items: center; overflow: auto; }
+body {
+  background: radial-gradient(#fff, #f2f2f2, #ccc, #a6a6a6, #999, #777);
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  overflow: auto;
+}
 
-body .btn-delete, body .board .column-container .column .column-btn-change, body .board .column-container .column .column-card-list .card .card-btn-delete, body .board .column-container .column .column-card-list .card .card-btn-change, body .board .column-container .column .column-btn-delete, body .board .column-container .column .add-card { height: 32px; width: 32px; text-align: center; border-radius: 10%; background-color: #008075; color: #fff; font-size: 12px; font-family: "Fira Mono", monospace; font-weight: 800; padding: 8px; text-transform: uppercase; cursor: pointer; transition: 0.7s; }
+body .btn-delete, body .board .column-container .column .column-btn-change, body .board .column-container .column .column-card-list .card .card-btn-delete, body .board .column-container .column .column-card-list .card .card-btn-change, body .board .column-container .column .column-btn-delete, body .board .column-container .column .add-card {
+  height: 32px;
+  width: 32px;
+  text-align: center;
+  border-radius: 10%;
+  border: none;
+  background-color: #004d4d;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.7s;
+}
 
-body .btn-delete:hover, body .board .column-container .column .column-btn-change:hover, body .board .column-container .column .column-card-list .card .card-btn-delete:hover, body .board .column-container .column .column-card-list .card .card-btn-change:hover, body .board .column-container .column .column-btn-delete:hover, body .board .column-container .column .add-card:hover { background-color: #a6d9d6; color: #001a18; }
+body .btn-delete:hover, body .board .column-container .column .column-btn-change:hover, body .board .column-container .column .column-card-list .card .card-btn-delete:hover, body .board .column-container .column .column-card-list .card .card-btn-change:hover, body .board .column-container .column .column-btn-delete:hover, body .board .column-container .column .add-card:hover {
+  background-color: #5ebab4;
+  color: #001a18;
+}
 
-body .board { height: auto; width: 100%; display: -ms-flexbox; display: flex; -ms-flex-direction: column; flex-direction: column; -ms-flex-pack: center; justify-content: center; -ms-flex-align: center; align-items: center; overflow: hidden; }
+body .board {
+  height: auto;
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  overflow: hidden;
+}
 
-body .board h1 { width: 600px; background-color: #990000; box-shadow: 10px 10px 1px #003B37; font-size: 50px; padding: 25px; font-style: italic; font-weight: 800; color: #FFFDC7; text-shadow: 2px 4px 4px #003B37; text-transform: capitalize; text-align: center; text-transform: capitalize; }
+body .board h1 {
+  width: 40%;
+  background-color: #990000;
+  box-shadow: 10px 10px 1px #003B37;
+  font-size: 50px;
+  padding: 25px;
+  font-family: "Montserrat", sans-serif;
+  font-style: italic;
+  font-weight: 600;
+  color: #FFFDC7;
+  text-shadow: 2px 4px 4px #003B37;
+  text-transform: capitalize;
+  text-align: center;
+  text-transform: capitalize;
+  margin: 25px auto;
+}
 
-body .board .create-column { height: 60px; margin: 25px auto 25px auto; border-radius: 30px; border: none; text-align: center; background-color: #990000; color: #FFFDC7; font-size: 18px; font-family: "Fira Mono", monospace; font-weight: 800; padding: 15px; cursor: pointer; transition: 0.5s; }
+body .board .create-column {
+  height: 60px;
+  margin: 25px auto 25px auto;
+  border-radius: 30px;
+  border: none;
+  text-align: center;
+  background-color: #990000;
+  color: #FFFDC7;
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  padding: 15px;
+  cursor: pointer;
+  transition: 0.5s;
+}
 
-body .board .create-column:hover { background-color: #999999; color: #990000; }
+body .board .create-column:hover {
+  background-color: #999999;
+  color: #990000;
+}
 
-body .board .column-container { margin: 100px 50px; display: -ms-flexbox; display: flex; -ms-flex-pack: center; justify-content: center; -ms-flex-align: center; align-items: center; height: auto; width: 99vw; }
+body .board .column-container {
+  margin: 25px 50px 50px 50px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  height: auto;
+  width: 99vw;
+}
 
-body .board .column-container .column { position: relative; height: auto; width: 30vw; background-color: #ffaa80; box-shadow: 10px 10px 1px #001a18; margin: 10px; }
+body .board .column-container .column {
+  position: relative;
+  height: auto;
+  width: 30vw;
+  background-color: #ffaa80;
+  box-shadow: 10px 10px 1px #001a18;
+  margin: 10px;
+}
 
-body .board .column-container .column .column-btn-change { margin: 0 auto; border-radius: 15px; width: 120px; height: 40px; margin: 0 10px 0 25%; text-transform: none; }
+body .board .column-container .column .column-btn-change {
+  margin: 0 auto;
+  border-radius: 15px;
+  width: 120px;
+  height: 40px;
+  margin: 0 10px;
+  text-transform: none;
+}
 
-body .board .column-container .column .column-title { margin-top: 0; width: 100%; height: auto; font-size: 25px; font-family: "Montserrat", sans-serif; text-transform: uppercase; color: #001a18; text-shadow: 2px 2px 2px #999999; font-weight: 700; text-align: center; padding: 15px; }
+body .board .column-container .column .column-title {
+  margin-top: 0;
+  width: 100%;
+  height: auto;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  color: #001a18;
+  text-shadow: 2px 2px 2px #999999;
+  font-weight: 700;
+  text-align: center;
+  padding: 15px;
+}
 
-body .board .column-container .column .column-card-list { list-style-type: none; display: inline-block; margin-right: 100px; max-height: auto; min-width: 25vw; }
+body .board .column-container .column .column-card-list {
+  list-style-type: none;
+  display: inline-block;
+  margin-right: 100px;
+  max-height: auto;
+  min-width: 25vw;
+}
 
-body .board .column-container .column .column-card-list .card { margin-right: 50px; height: auto; width: 25vw; background: linear-gradient(to bottom left, #fff, #ccc); box-shadow: 10px 10px 1px #003B37; margin-bottom: 15px; position: relative; }
+body .board .column-container .column .column-card-list .card {
+  margin-right: 50px;
+  height: 120px;
+  width: 25vw;
+  background: linear-gradient(to bottom left, #fff, #ccc);
+  box-shadow: 10px 10px 1px #001a18;
+  margin-bottom: 15px;
+  position: relative;
+}
 
-body .board .column-container .column .column-card-list .card .card-description { font-size: 20px; font-family: "Montserrat", sans-serif; font-weight: 700; color: #001a18; text-shadow: 2px 1px #FFFDCC; text-align: center; padding: 10px; margin-top: 0; }
+body .board .column-container .column .column-card-list .card .card-description {
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #001a18;
+  text-shadow: 2px 1px #FFFDCC;
+  text-align: center;
+  padding: 0px;
+  margin: 10px auto;
+}
 
-body .board .column-container .column .column-card-list .card .card-btn-delete { margin: 0; position: absolute; top: 0; right: 0; }
+body .board .column-container .column .column-card-list .card .card-btn-delete {
+  margin-left: 85%;
+  float: right;
+}
 
-body .board .column-container .column .column-card-list .card .card-btn-change { width: 120px; height: 40px; margin-left: 33%; margin-bottom: 5px; text-transform: none; border-radius: 20px; }
+body .board .column-container .column .column-card-list .card .card-btn-change {
+  width: 120px;
+  height: 40px;
+  margin-left: 33%;
+  margin-bottom: 5px;
+  text-transform: none;
+  border-radius: 20px;
+}
 
-body .board .column-container .column .column-btn-delete { margin: 10px; }
+body .board .column-container .column .column-btn-delete {
+  margin: 0;
+}
 
-body .board .column-container .column .add-card { text-transform: Uppercase; font-size: 12px; padding: 8px; transition: 0.5s; }
+body .board .column-container .column .add-card {
+  text-transform: Uppercase;
+  font-size: 12px;
+  padding: 8px;
+  transition: 0.5s;
+  margin-left: 27%;
+}
 
-body .board .column-container .column .add-card:hover { background-color: #a6d9d6; color: #003B37; text-shadow: none; }
+body .board .column-container .column .add-card:hover {
+  background-color: #a6d9d6;
+  color: #003B37;
+  text-shadow: none;
+}
 
-body .board .card-placeholder { width: 28vw; min-height: 10vh; border: 2px dotted #026A62; background-color: #B5E1DE; }
+body .board .card-placeholder {
+  width: 25vw;
+  height: 100px;
+  border: 2px inset #001a18;
+  background-color: #5ebab4;
+}
 
-@keyframes card-animation { 0% { background-color: #D7BCEC;
-    color: #5F2900;
-    transform: matrix(1, 0, 0, 1, 0, 0); }
-  25% { background-color: #ac74d8;
-    color: #cc5800;
-    transform: matrix(1.25, 0, 0.25, 1.25, 0, 0); }
-  50% { background-color: #ac74d8;
-    color: #ffb780;
-    transform: matrix(1.5, 0, 0.5, 1.5, 0, 0); }
-  75% { background-color: #ac74d8;
-    color: #cc5800;
-    transform: matrix(1.25, 0, 0.25, 1.25, 0, 0); }
-  100% { background-color: #D7BCEC;
-    color: #5F2900;
-    transform: matrix(1, 0, 0, 1, 0, 0); } }
+body .board .column-placeholder {
+  height: auto;
+  width: 30vw;
+  border: 2px inset #001a18;
+  background-color: #5ebab4;
+}
 
-body .board .ui-sortable-helper { animation: card-animation 1s ease-in-out 1s infinite normal; transition: background-color 1s linear, color 1s linear, transform 1s linear; }
+@keyframes card-animation {
+  0% {
+    transform: matrix(1, 0, 0, 1, 0, 0);
+  }
+  25% {
+    transform: matrix(1.25, 0, 0.25, 1.25, 0, 0);
+  }
+  50% {
+    transform: matrix(1.5, 0, 0.5, 1.5, 0, 0);
+  }
+  75% {
+    transform: matrix(1.25, 0, 0.25, 1.25, 0, 0);
+  }
+  100% {
+    transform: matrix(1, 0, 0, 1, 0, 0);
+  }
+}
+
+body .board .ui-sortable-helper {
+  animation: card-animation 1s ease-in-out 1s infinite normal;
+  transition: background-color 1s linear, color 1s linear, transform 1s linear;
+}
+
+@media (max-width: 767px) and (orientation: portrait) {
+  body .btn-delete, body .board .column-container .column .column-btn-change, body .board .column-container .column .column-card-list .card .card-btn-delete, body .board .column-container .column .column-card-list .card .card-btn-change, body .board .column-container .column .column-btn-delete, body .board .column-container .column .add-card {
+    height: 22px;
+    width: 22px;
+    font-size: 10px;
+    padding: 7px;
+  }
+  body .board h1 {
+    width: 90%;
+    font-size: 35px;
+    padding: 16.66px;
+    margin: 12.5px auto;
+  }
+  body .board .create-column {
+    font-size: 12px;
+    padding: 10px;
+    height: 40px;
+    border-radius: 20px;
+  }
+  body .board .column-container {
+    -ms-flex-direction: column;
+        flex-direction: column;
+  }
+  body .board .column-container .column {
+    width: 90vw;
+  }
+  body .board .column-container .column .column-title {
+    font-size: 18px;
+    padding: 10px;
+  }
+  body .board .column-container .column .add-card {
+    margin-left: 27%;
+    margin-bottom: 15px;
+  }
+  body .board .column-container .column .column-btn-change {
+    height: 30px;
+    width: 90px;
+    margin-bottom: 10px;
+  }
+  body .board .column-container .column .column-btn-delete {
+    margin-bottom: 15px;
+  }
+  body .board .column-container .column .column-card-list {
+    padding-left: 30px;
+  }
+  body .board .column-container .column .column-card-list .card {
+    width: 75vw;
+    margin-right: 5vw;
+    margin-bottom: 10px;
+    box-shadow: 5px 5px 1px #001a18;
+  }
+  body .board .column-container .column .column-card-list .card .card-description {
+    font-size: 14px;
+    padding: 6.66px;
+    margin: 15px auto;
+  }
+  body .board .column-container .column .column-card-list .card .card-btn-change {
+    height: 30px;
+    width: 90px;
+  }
+  body .board .card-placeholder {
+    width: 75vw;
+  }
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+  body .btn-delete, body .board .column-container .column .column-btn-change, body .board .column-container .column .column-card-list .card .card-btn-delete, body .board .column-container .column .column-card-list .card .card-btn-change, body .board .column-container .column .column-btn-delete, body .board .column-container .column .add-card {
+    height: 22px;
+    width: 22px;
+    font-size: 10px;
+    padding: 7px;
+  }
+  body .board h1 {
+    width: 60%;
+    font-size: 35px;
+    padding: 16.66px;
+    margin: 12.5px auto;
+  }
+  body .board .create-column {
+    font-size: 12px;
+    padding: 10px;
+    height: 40px;
+    border-radius: 20px;
+  }
+  body .board .column-container {
+    -ms-flex-direction: row;
+        flex-direction: row;
+  }
+  body .board .column-container .column {
+    width: 30vw;
+  }
+  body .board .column-container .column .column-title {
+    font-size: 18px;
+    padding: 10px;
+  }
+  body .board .column-container .column .add-card {
+    margin-left: 10%;
+    margin-bottom: 15px;
+  }
+  body .board .column-container .column .column-btn-change {
+    height: 30px;
+    width: 90px;
+    margin-bottom: 10px;
+  }
+  body .board .column-container .column .column-btn-delete {
+    margin-bottom: 15px;
+  }
+  body .board .column-container .column .column-card-list {
+    padding-left: 10px;
+  }
+  body .board .column-container .column .column-card-list .card {
+    width: 25vw;
+    margin-right: 2.5vw;
+    margin-bottom: 10px;
+    box-shadow: 5px 5px 1px #001a18;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+  }
+  body .board .column-container .column .column-card-list .card .card-description {
+    font-size: 14px;
+    padding: 0;
+    margin: 0 20px;
+  }
+  body .board .column-container .column .column-card-list .card .card-btn-change {
+    height: 30px;
+    width: 90px;
+    position: absolute;
+    bottom: 5px;
+    margin-left: 20%;
+  }
+  body .board .column-container .column .column-card-list .card .card-btn-delete {
+    margin-left: 85%;
+  }
+  body .board .card-placeholder {
+    width: 75vw;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  body .btn-delete, body .board .column-container .column .column-btn-change, body .board .column-container .column .column-card-list .card .card-btn-delete, body .board .column-container .column .column-card-list .card .card-btn-change, body .board .column-container .column .column-btn-delete, body .board .column-container .column .add-card {
+    height: 22px;
+    width: 22px;
+    font-size: 10px;
+    padding: 7px;
+  }
+  body .board h1 {
+    width: 60%;
+    font-size: 40px;
+    padding: 16.66px;
+    margin: 12.5px auto;
+  }
+  body .board .create-column {
+    font-size: 15px;
+    padding: 12px;
+    height: 45px;
+    border-radius: 22.5px;
+  }
+  body .board .column-container {
+    -ms-flex-direction: row;
+        flex-direction: row;
+  }
+  body .board .column-container .column {
+    width: 30vw;
+  }
+  body .board .column-container .column .column-title {
+    font-size: 20px;
+    padding: 11px;
+  }
+  body .board .column-container .column .add-card {
+    margin-left: 10%;
+    margin-bottom: 15px;
+  }
+  body .board .column-container .column .column-btn-change {
+    height: 30px;
+    width: 90px;
+    margin-bottom: 10px;
+    font-size: 11px;
+  }
+  body .board .column-container .column .column-btn-delete {
+    margin-bottom: 15px;
+  }
+  body .board .column-container .column .column-card-list {
+    padding-left: 10px;
+  }
+  body .board .column-container .column .column-card-list .card {
+    width: 25vw;
+    margin-right: 2.5vw;
+    margin-bottom: 10px;
+    box-shadow: 5px 5px 1px #003B37;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+  }
+  body .board .column-container .column .column-card-list .card .card-description {
+    font-size: 14px;
+    padding: 0;
+    margin: 0 20px;
+  }
+  body .board .column-container .column .column-card-list .card .card-btn-change {
+    height: 30px;
+    width: 90px;
+    position: absolute;
+    bottom: 5px;
+    margin-left: 25%;
+  }
+  body .board .column-container .column .column-card-list .card .card-btn-delete {
+    margin-left: 88%;
+  }
+  body .board .card-placeholder {
+    width: 75vw;
+  }
+}
+/*# sourceMappingURL=style.css.map */
