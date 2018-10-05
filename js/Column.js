@@ -20,12 +20,12 @@ function Column(id, name) {
 
 		$columnDelete.click(function() {
 			$columnCardList.effect("drop", "slow");
+			$columnTitle.effect("explode", "fast");
 			self.removeColumn();
 		});
 
 		$changeName.click(function(event) {
 			self.changeColumnName();
-			$columnTitle.effect("slide", "slow");
 				event.preventDefault();
 		});
 
@@ -57,9 +57,9 @@ console.log(self.id);
 			// Building the column's element
 
 		column.append($columnTitle)
+			.append($columnAddCard)
 			.append($changeName)
 			.append($columnDelete)
-			.append($columnAddCard)
 			.append($columnCardList);
 			return column;
 		}
@@ -98,7 +98,7 @@ Column.prototype = {
 									},
 									method: 'PUT',
 									success: function(response) {
-										self.$element.find('.column-title').text(self.name).text(newColumnName);
+										self.$element.find('.column-title').text(self.name).text(newColumnName).effect("slide", "fast");
 									}
 							}); //end of AJAX request
 						}
