@@ -81,7 +81,7 @@ Column.prototype = {
 						self.$element.remove();
 					}
 			});
-			console.log(self.id);
+			//console.log(self.id);
 	},
 		changeColumnName: function() {
 			var self = this;
