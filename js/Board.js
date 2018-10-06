@@ -36,6 +36,18 @@ $('.create-column')
 		var self = this;
 		$('.column-card-list').sortable({
 			connectWith: '.column-card-list',
-			placeholder: 'card-placeholder'
+			placeholder: 'card-placeholder',
+			forcePlaceHolderSize: true,
+			dropOnEmpty: true,
+			/*axis: 'y',
+			update: function(event, ui) {
+					var data = self.sortable('serialize' );
+
+					$.ajax({
+						data: data,
+						type: 'POST',
+						url: baseUrl
+					});
+			}*/
 		}).disableSelection();
 	}
