@@ -17,6 +17,7 @@ this.$element = createCard();
 			$cardDeleteBtn.click(function(){
 				$card.effect("drop", "slow");
 				self.removeCard();
+				$(".ui-effects-wrapper").children().unwrap();
 			});
 
 			$cardChangeBtn.click(function(event){
@@ -24,8 +25,8 @@ this.$element = createCard();
 				event.preventDefault();
 			});
 
-			console.log(self.id);
-			console.log(Column.bootcamp_kanban_column_id);
+			/*console.log(self.id);
+			console.log(Column.bootcamp_kanban_column_id);*/
 
 			$card.append($cardDeleteBtn);
 			$cardDescription.text(self.name);
