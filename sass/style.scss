@@ -130,7 +130,9 @@ body {
                 list-style-type: none;
                 display: inline-block;
                 margin-right: 100px;
-                max-height: auto;
+                min-height: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
                 min-width: 25vw;
 
                   .card {
