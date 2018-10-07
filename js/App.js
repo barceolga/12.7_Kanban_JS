@@ -29,6 +29,7 @@ function setupColumns(columns) {
 			var col = new Column(column.id, column.name);
 			board.createColumn(col);
 			setupCards(col, column.cards);
+			stopCreateColumns();
 	});
 }
 
@@ -39,4 +40,13 @@ function setupCards(col, cards) {
 		var cardObj = new Card(card.id, card.name, card.bootcamp_kanban_column_id);
 		col.addCard(cardObj);
 	});
+}
+
+function stopCreateColumns() {
+	var columnsList = $('.column').serialize();
+	console.log(columnsList);
+	if (columnsList.length==3) {
+		$('.create-column').prop("disabled", true);
+		alert("You can create only 3 columns at most.");
+	}
 }

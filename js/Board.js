@@ -1,5 +1,5 @@
 var board = {
-	name: 'Kanban board',
+	name: 'ToDo list',
 	createColumn: function(column) {
 		  this.$element.append(column.$element);
 		  initSortable();
@@ -33,20 +33,19 @@ $('.create-column')
 	});
 
 	function initSortable() {
-		var self = this;
+	//	var self = this;
 		$('.column-card-list').sortable({
 			connectWith: '.column-card-list',
 			placeholder: 'card-placeholder',
 			forcePlaceHolderSize: true,
-			dropOnEmpty: true,
-			/*axis: 'y',
+			dropOnEmpty: true/*,
 			update: function(event, ui) {
-					var data = self.sortable('serialize' );
+					var data = $(this).sortable('serialize' );
 
 					$.ajax({
+						url: baseUrl + '/board',
 						data: data,
 						type: 'POST',
-						url: baseUrl
 					});
 			}*/
 		}).disableSelection();

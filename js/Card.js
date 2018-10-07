@@ -11,8 +11,9 @@ this.$element = createCard();
 	function createCard() {
 		var $card = $('<li>').addClass('card');
 		var $cardDescription = $('<p>').addClass('card-description').text(self.description);
-		var $cardDeleteBtn = $('<button>').addClass('card-btn-delete').html('<i class="fa fa-trash" aria-hidden="true"></i>');
+		var $cardDeleteBtn = $('<div>').addClass('btn-delete-wrapper').html('<button class="card-btn-delete"><i class="fa fa-trash" aria-hidden="true"></i></button>');
 		var $cardChangeBtn = $('<button>').addClass('card-btn-change').text('Change name');
+		var $changeWrapper = $('<div>').addClass('btn-change-wrapper');
 
 			$cardDeleteBtn.click(function(){
 				$card.effect("drop", "slow");
@@ -24,14 +25,15 @@ this.$element = createCard();
 				self.changeCardName();
 				event.preventDefault();
 			});
-
 			/*console.log(self.id);
 			console.log(Column.bootcamp_kanban_column_id);*/
+			$changeWrapper.append($cardChangeBtn);
 
 			$card.append($cardDeleteBtn);
 			$cardDescription.text(self.name);
 			$card.append($cardDescription);
-			$card.append($cardChangeBtn);
+			$card.append($changeWrapper);
+
 			return $card;
 		}
 }
@@ -65,7 +67,7 @@ Card.prototype = {
 						},
 						method: 'PUT',
 						success: function(response) {
-							self.$element.find('.card-description').text(self.description).text(newCardName).effect("slide", "fast");
+							self.$element.find('.card-description').text(self.description).text(newCardName).effect("slide", "slow");
 						}
 				});
 			}

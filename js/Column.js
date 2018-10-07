@@ -10,17 +10,18 @@ function Column(id, name) {
 		// CREATING NEWS NODS
 
 		var column = $('<div>').addClass('column');
+
 		var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
 		var $columnCardList = $('<ul>').addClass('column-card-list');
 		var $columnDelete = $('<button>').addClass('column-btn-delete').html('<i class="fa fa-trash" aria-hidden="true"></i>');
 		var $changeName = $('<button>').addClass('column-btn-change').text('Change name');
 		var $columnAddCard = $('<button>').addClass('add-card').html('<i class="fa fa-plus" aria-hidden="true"></i>');
-
+		var $columnButtons = $('<div>').addClass('column-buttons');
 		// BINDING EVENTS TO THE CONCRETE NODS
 
 		$columnDelete.click(function() {
 			$columnCardList.effect("drop", "slow");
-			$columnTitle.effect("explode", "fast");
+			$columnTitle.effect("drop", "slow");
 			self.removeColumn();
 		});
 
@@ -52,14 +53,18 @@ function Column(id, name) {
 				}); //end of AJAX request
 			}
 		});
-console.log(self.id);
+//console.log(self.id);
 
 			// Building the column's element
+		$columnButtons.append($columnAddCard)
+			.append($changeName)
+			.append($columnDelete);
 
 		column.append($columnTitle)
-			.append($columnAddCard)
+			/*.append($columnAddCard)
 			.append($changeName)
-			.append($columnDelete)
+			.append($columnDelete)*/
+			.append($columnButtons)
 			.append($columnCardList);
 			return column;
 		}
@@ -98,7 +103,7 @@ Column.prototype = {
 									},
 									method: 'PUT',
 									success: function(response) {
-										self.$element.find('.column-title').text(self.name).text(newColumnName).effect("slide", "fast");
+										self.$element.find('.column-title').text(self.name).text(newColumnName).effect("slide", "slow");
 									}
 							}); //end of AJAX request
 						}

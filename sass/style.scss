@@ -9,6 +9,8 @@ $sea-blue: #004d4d;
 $phone_portrait: "(max-width: 767px) and (orientation: portrait)";
 $phone_landscape: "(max-width: 767px) and (orientation: landscape)";
 $tablet: "(min-width: 768px) and (max-width: 991px)";
+/*$desktop_small: "(min-width:992px) and (max-width: 1200px)";
+$desktop_medium: "(min-width:1200) and (max-width: 1400px)";*/
 
 
 * {
@@ -102,6 +104,27 @@ body {
             background-color: #ffaa80;
             box-shadow: 10px 10px 1px $deep-sea;
             margin: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .column-title {
+              margin-top: 0;
+              width: 100%;
+              height: auto;
+              font-size: 25px;
+              font-family: $Mont_font;
+              text-transform: uppercase;
+              color: $deep-sea;
+              text-shadow: 2px 2px 2px #999999;
+              font-weight: 700;
+              text-align: center;
+              padding: 15px;
+            }
+            .column-buttons {
+              display: flex;
+              justify-content: center;
+            }
 
             .column-btn-change {
               margin: 0 auto;
@@ -112,32 +135,21 @@ body {
               margin: 0 10px;
               text-transform: none;
             }
-              .column-title {
-                margin-top: 0;
-                width: 100%;
-                height: auto;
-                font-size: 25px;
-                font-family: $Mont_font;
-                text-transform: uppercase;
-                color: $deep-sea;
-                text-shadow: 2px 2px 2px #999999;
-                font-weight: 700;
-                text-align: center;
-                padding: 15px;
-              }
-
               .column-card-list {
                 list-style-type: none;
-                display: inline-block;
-                margin-right: 100px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
                 min-height: 10px;
                 padding-top: 10px;
+                padding-left: 0;
                 padding-bottom: 10px;
                 min-width: 25vw;
 
                   .card {
-                    margin-right: 50px;
-                    height: 120px;
+                    min-height: 120px;
+                    height: auto;
                     width: 25vw;
                     background: linear-gradient(to bottom left, #fff, #ccc);
                     box-shadow: 10px 10px 1px $deep-sea;;
@@ -154,23 +166,24 @@ body {
                       padding: 0px;
                       margin: 10px auto;
                     }
-
-                    .card-btn-delete {
-                      @extend .btn-delete;
-                      margin-left: 85%;
-                      float: right;
+                    div {
+                      height: 32px;
+                      .card-btn-delete {
+                        @extend .btn-delete;
+                        float: right;
+                      }
                     }
-
+                    .btn-change-wrapper {
+                      display: flex;
+                      justify-content: center;
+                    }
                     .card-btn-change {
                       @extend .btn-delete;
                       width: 120px;
                       height: 40px;
-                      margin-left: 33%;
-                      margin-bottom: 5px;
                       text-transform: none;
                       border-radius: 20px;
                     }
-
                   }
               }
 
@@ -185,7 +198,6 @@ body {
                 font-size: 12px;
                 padding: 8px;
                 transition: 0.5s;
-                margin-left: 27%;
                    &:hover{
                      background-color: #a6d9d6;
                      color: #003B37;
@@ -197,7 +209,7 @@ body {
 
       .card-placeholder {
         width: 25vw;
-        height: 100px;
+        height: 120px;
         border: 2px inset $deep-sea;
         background-color: #5ebab4;
         }
@@ -262,7 +274,6 @@ body {
           padding: 10px;
         }
         .add-card {
-          margin-left: 27%;
           margin-bottom: 15px;
         }
         .column-btn-change {
@@ -274,16 +285,14 @@ body {
           margin-bottom: 15px;
         }
         .column-card-list {
-          padding-left: 30px;
           .card {
             width: 75vw;
-            margin-right: 5vw;
             margin-bottom: 10px;
             box-shadow: 5px 5px 1px $deep-sea;
             .card-description {
               font-size: 14px;
               padding: 6.66px;
-              margin: 15px auto;
+              margin: 10px auto;
             }
             .card-btn-change {
               height: 30px;
@@ -329,7 +338,6 @@ body {
             padding: 10px;
           }
           .add-card {
-            margin-left: 10%;
             margin-bottom: 15px;
           }
           .column-btn-change {
@@ -341,7 +349,6 @@ body {
             margin-bottom: 15px;
           }
           .column-card-list {
-            padding-left: 10px;
             .card {
               width: 25vw;
               margin-right: 2.5vw;
@@ -359,17 +366,13 @@ body {
                 width: 90px;
                 position: absolute;
                 bottom: 5px;
-                margin-left: 20%;
-              }
-              .card-btn-delete {
-                margin-left: 85%;
               }
             }
           }
         }
       }
         .card-placeholder {
-          width: 75vw;
+          width: 25vw;
         }
       }
     }
@@ -381,7 +384,7 @@ body {
       height: 22px;
       width: 22px;
       font-size: 10px;
-      padding: 7px;
+      padding: 6px;
     }
     .board {
       h1 {
@@ -405,23 +408,20 @@ body {
             padding: 11px;
           }
           .add-card {
-            margin-left: 10%;
             margin-bottom: 15px;
           }
           .column-btn-change {
             height: 30px;
             width: 90px;
             margin-bottom: 10px;
-            font-size: 11px;
+            font-size: 10px;
           }
           .column-btn-delete {
             margin-bottom: 15px;
           }
           .column-card-list {
-            padding-left: 10px;
             .card {
               width: 25vw;
-              margin-right: 2.5vw;
               margin-bottom: 10px;
               box-shadow: 5px 5px 1px #003B37;
               display: flex;
@@ -436,10 +436,6 @@ body {
                 width: 90px;
                 position: absolute;
                 bottom: 5px;
-                margin-left: 25%;
-              }
-              .card-btn-delete {
-                margin-left: 88%;
               }
             }
           }
