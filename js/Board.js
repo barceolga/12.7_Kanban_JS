@@ -30,6 +30,7 @@ $('.create-column')
 
 				}); //end of AJAX request
 		}
+		stopCreateColumns();
 	});
 
 	function initSortable() {
@@ -49,4 +50,16 @@ $('.create-column')
 					});
 			}*/
 		}).disableSelection();
+	}
+	
+	function stopCreateColumns() {
+			var columnsList = $('.column').toArray();
+			if (columnsList.length < 3 ) {
+				$('.create-column').prop("disabled", false);
+			} else {
+			$('.create-column').prop("disabled", true);
+			alert("You can create only 3 columns at most.");
+			}
+			console.log(columnsList);
+			console.log(columnsList.length);
 	}
