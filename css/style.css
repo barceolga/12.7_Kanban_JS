@@ -5,9 +5,7 @@
 }
 
 body {
-  background: radial-gradient(#fff, #f2f2f2, #ccc, #a6a6a6, #999, #777);
-  -ms-flex-direction: column;
-      flex-direction: column;
+  background: linear-gradient(to left, #93cede 0%, #93cede 35%, #004d4d 85%, #004d4d 93%, #004d4d 100%);
   -ms-flex-pack: center;
       justify-content: center;
   -ms-flex-align: center;
@@ -84,7 +82,7 @@ body .board .create-column {
 }
 
 body .board .create-column:hover {
-  background-color: #999999;
+  background: linear-gradient(to bottom left, #fff, #ccc);
   color: #990000;
 }
 
@@ -134,6 +132,8 @@ body .board .column-container .column .column-buttons {
   display: flex;
   -ms-flex-pack: center;
       justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
 }
 
 body .board .column-container .column .column-btn-change {
