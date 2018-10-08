@@ -53,7 +53,6 @@ function Column(id, name) {
 				}); //end of AJAX request
 			}
 		});
-//console.log(self.id);
 
 			// Building the column's element
 		$columnButtons.append($columnAddCard)
@@ -61,9 +60,6 @@ function Column(id, name) {
 			.append($columnDelete);
 
 		column.append($columnTitle)
-			/*.append($columnAddCard)
-			.append($changeName)
-			.append($columnDelete)*/
 			.append($columnButtons)
 			.append($columnCardList);
 			return column;
@@ -107,6 +103,5 @@ Column.prototype = {
 									}
 							}); //end of AJAX request
 						}
-				console.log(self.id);
 		}
 };

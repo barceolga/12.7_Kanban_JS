@@ -10,6 +10,7 @@ var board = {
 $('.create-column')
 	.click(function(){
 		var columnName = prompt('Enter a column name.');
+
   if ((columnName === null || columnName ==="")) {
 
 		alert("You need to enter a column name in order to create the column.");
@@ -30,7 +31,6 @@ $('.create-column')
 
 				}); //end of AJAX request
 		}
-		stopCreateColumns();
 	});
 
 	function initSortable() {
@@ -51,15 +51,12 @@ $('.create-column')
 			}*/
 		}).disableSelection();
 	}
-	
+
 	function stopCreateColumns() {
 			var columnsList = $('.column').toArray();
-			if (columnsList.length < 3 ) {
-				$('.create-column').prop("disabled", false);
-			} else {
+			console.log(columnsList.length);
+			if (columnsList.length > 3 ) {
 			$('.create-column').prop("disabled", true);
 			alert("You can create only 3 columns at most.");
-			}
-			console.log(columnsList);
-			console.log(columnsList.length);
-	}
+		}
+}
