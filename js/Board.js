@@ -44,19 +44,15 @@ $('.create-column')
 					var data = $(this).sortable('serialize' );
 
 					$.ajax({
-						url: baseUrl + '/board',
-						data: data,
+						url: baseUrl + '/card',
 						type: 'POST',
+						data: data,
+						success: function(data) {
+							data.sort(function(a, b) {
+									return a < b ? -1 : 1;
+							})
+						}
 					});
 			}*/
 		}).disableSelection();
 	}
-
-	function stopCreateColumns() {
-			var columnsList = $('.column').toArray();
-			console.log(columnsList.length);
-			if (columnsList.length > 3 ) {
-			$('.create-column').prop("disabled", true);
-			alert("You can create only 3 columns at most.");
-		}
-}

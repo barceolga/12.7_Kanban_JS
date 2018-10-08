@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900");
 @import url("https://fonts.googleapis.com/css?family=Fira+Mono");
-/*$desktop_small: "(min-width:992px) and (max-width: 1200px)";
-$desktop_medium: "(min-width:1200) and (max-width: 1400px)";*/
 * {
   box-sizing: border-box;
 }
@@ -454,5 +452,4 @@ body .board .ui-sortable-helper {
     width: 75vw;
   }
 }
-
 /*# sourceMappingURL=style.css.map */

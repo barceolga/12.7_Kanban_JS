@@ -10,18 +10,19 @@ function Column(id, name) {
 		// CREATING NEWS NODS
 
 		var column = $('<div>').addClass('column');
-
 		var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
 		var $columnCardList = $('<ul>').addClass('column-card-list');
 		var $columnDelete = $('<button>').addClass('column-btn-delete').html('<i class="fa fa-trash" aria-hidden="true"></i>');
 		var $changeName = $('<button>').addClass('column-btn-change').text('Change name');
 		var $columnAddCard = $('<button>').addClass('add-card').html('<i class="fa fa-plus" aria-hidden="true"></i>');
 		var $columnButtons = $('<div>').addClass('column-buttons');
+		//var columnsList = $('.column').toArray();
 		// BINDING EVENTS TO THE CONCRETE NODS
 
 		$columnDelete.click(function() {
 			$columnCardList.effect("drop", "slow");
 			$columnTitle.effect("drop", "slow");
+			$('.create-column').prop("disabled", false);
 			self.removeColumn();
 		});
 
@@ -58,10 +59,11 @@ function Column(id, name) {
 		$columnButtons.append($columnAddCard)
 			.append($changeName)
 			.append($columnDelete);
-
+      stopCreateColumns();
 		column.append($columnTitle)
 			.append($columnButtons)
 			.append($columnCardList);
+
 			return column;
 		}
 	}
@@ -105,3 +107,11 @@ Column.prototype = {
 						}
 		}
 };
+function stopCreateColumns(columnsList) {
+	var columnsList = $('.column').toArray();
+		if (columnsList.length === 2 ) {
+		$('.create-column').prop("disabled", true);
+		alert("You can create only 3 columns at most.");
+	}
+		console.log(columnsList.length);
+}
