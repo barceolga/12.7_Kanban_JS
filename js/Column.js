@@ -59,7 +59,6 @@ function Column(id, name) {
 		$columnButtons.append($columnAddCard)
 			.append($changeName)
 			.append($columnDelete);
-      stopCreateColumns();
 		column.append($columnTitle)
 			.append($columnButtons)
 			.append($columnCardList);
@@ -107,11 +106,3 @@ Column.prototype = {
 						}
 		}
 };
-function stopCreateColumns(columnsList) {
-	var columnsList = $('.column').toArray();
-		if (columnsList.length === 2 ) {
-		$('.create-column').prop("disabled", true);
-		alert("You can create only 3 columns at most.");
-	}
-		console.log(columnsList.length);
-}
