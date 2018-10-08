@@ -7,8 +7,21 @@ var board = {
 	$element: $('#board .column-container')
 };
 
+		const maxColumns = 2;
+		function isAllowedToCreateColumn() {
+			var columnsList = $('.column').toArray();
+			console.log(columnsList.length);
+			return columnsList.length <= maxColumns;
+		}
+
 $('.create-column')
 	.click(function(){
+
+		if (!isAllowedToCreateColumn()) {
+					$('.create-column').prop('disabled', true);
+					alert("You can create only 3 columns at most.");
+					return;
+		}
 		var columnName = prompt('Enter a column name.');
 
   if ((columnName === null || columnName ==="")) {
