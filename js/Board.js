@@ -7,7 +7,7 @@ var board = {
 	$element: $('#board .column-container')
 };
 
-		const maxColumns = 2;
+		var maxColumns = 2;
 		function isAllowedToCreateColumn() {
 			var columnsList = $('.column').toArray();
 			console.log(columnsList.length);
