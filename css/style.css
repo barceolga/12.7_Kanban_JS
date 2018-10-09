@@ -359,19 +359,22 @@ body .board .ui-sortable-helper {
   body .board .column-container .column .column-title {
     font-size: 18px;
     padding: 10px;
+    height: auto;
+  }
+  body .board .column-container .column .column-buttons {
+    height: auto;
   }
   body .board .column-container .column .add-card {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
   }
   body .board .column-container .column .column-btn-change {
     height: 30px;
     width: 90px;
     font-size: 10px;
-    margin-bottom: 10px;
     padding: 8px;
   }
   body .board .column-container .column .column-btn-delete {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
   }
   body .board .column-container .column .column-card-list .card {
     width: 25vw;
