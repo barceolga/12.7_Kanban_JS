@@ -3,8 +3,8 @@
 
 $Mont_font: "Montserrat", sans-serif;
 $ligth-sun: #FFFDC7;
-$deep-sea: #001a18;
-$sea-blue: #004d4d;
+$deep-sea: #133953;
+$sea-blue: #1c567d;
 
 $phone_portrait: "(max-width: 767px) and (orientation: portrait)";
 $phone_landscape: "(max-width: 767px) and (orientation: landscape)";
@@ -14,9 +14,9 @@ $tablet: "(min-width: 768px) and (max-width: 991px)";
   box-sizing: border-box;
 }
 body {
-    //background: radial-gradient(#fff, #f2f2f2, #ccc, #a6a6a6, #999, #777);
-    //background: linear-gradient(90deg, rgba(216,224,222,1) 0%,rgba(174,191,188,1) 22%,rgba(153,175,171,1) 43%,rgba(142,166,162,1) 50%,rgba(130,157,152,1) 67%,rgba(78,92,90,1) 91%,rgba(14,14,14,1) 100%);
-    background: linear-gradient(to left, rgba(147,206,222,1) 0%, rgba(147,206,222,1) 35%, rgba(0,77,77,1) 85%, rgba(0,77,77,1) 93%, rgba(0,77,77,1) 100%);
+    //background-color: #2BC0E4;
+    //background-color: #ccc;
+    background: linear-gradient(to left, #2BC0E4, #d2f1f9, #2BC0E4, #d2f1f9);
     justify-content: center;
     align-items: center;
     overflow: auto;
@@ -52,15 +52,15 @@ body {
 
       h1 {
         width: 40%;
-        background-color: #990000;
-        box-shadow: 10px 10px 1px #003B37;
+        background-color: $deep_sea;
+        box-shadow: 10px 10px 1px #001a18;
         font-size: 50px;
         padding: 25px;
         font-family: $Mont_font;
         font-style: italic;
         font-weight: 600;
         color: $ligth-sun;
-        text-shadow: 2px 4px 4px #003B37;
+        text-shadow: 2px 4px 4px #001a18;
         text-transform: capitalize;
         text-align: center;
         text-transform: capitalize;
@@ -73,7 +73,7 @@ body {
       border-radius: 30px;
       border: none;
       text-align: center;
-      background-color: #990000;
+      background-color: $deep_sea;
       color: $ligth-sun;
       font-size: 18px;
       font-family: $Mont_font;
@@ -83,7 +83,7 @@ body {
       transition: 0.5s;
           &:hover {
             background: linear-gradient(to bottom left, #fff, #ccc);
-            color:  #990000;
+            color:  $deep_sea;
           }
     }
 
@@ -91,25 +91,26 @@ body {
         margin: 25px 50px 50px 50px;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         height: auto;
         width: 99vw;
 
           .column {
             position: relative;
-            height: auto;
+            height: 75vh;
             width: 30vw;
-            background-color: #ffaa80;
+            background: linear-gradient(to right,#ffbb99, #ffccb3, #ffddcc);
             box-shadow: 10px 10px 1px $deep-sea;
             margin: 10px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
+            align-items: center;
 
             .column-title {
               margin-top: 0;
               width: 100%;
-              height: auto;
+              height: 50px;
               font-size: 25px;
               font-family: $Mont_font;
               text-transform: uppercase;
@@ -123,6 +124,7 @@ body {
               display: flex;
               justify-content: center;
               align-items: center;
+              height: 60px;
             }
 
             .column-btn-change {
@@ -138,8 +140,10 @@ body {
                 list-style-type: none;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: flex-start;
                 align-items: center;
+                height: 65vh;
+                overflow: auto;
                 min-height: 10px;
                 padding-top: 10px;
                 padding-left: 0;
@@ -199,7 +203,7 @@ body {
                 transition: 0.5s;
                    &:hover{
                      background-color: #a6d9d6;
-                     color: #003B37;
+                     color: #001a18;
                      text-shadow: none;
                    }
               }
@@ -246,10 +250,10 @@ body {
 @media #{$phone_portrait} {
 body {
   .btn-delete {
-    height: 22px;
-    width: 22px;
-    font-size: 10px;
-    padding: 6px;
+    height: 42px;
+    width: 42px;
+    font-size: 14px;
+    padding: 13px;
   }
   .board {
     h1 {
@@ -276,8 +280,9 @@ body {
           margin-bottom: 15px;
         }
         .column-btn-change {
-          height: 30px;
-          width: 90px;
+          height: 40px;
+          border-radius: 20px;
+          width: 120px;
           margin-bottom: 10px;
         }
         .column-btn-delete {
@@ -291,11 +296,12 @@ body {
             .card-description {
               font-size: 14px;
               padding: 6.66px;
-              margin: 10px auto;
+              margin: 5px auto;
             }
             .card-btn-change {
-              height: 30px;
-              width: 90px;
+              height: 40px;
+              width: 120px;
+              border-radius: 20px;
             }
           }
         }
@@ -310,10 +316,10 @@ body {
 @media #{$phone_landscape} {
   body {
     .btn-delete {
-      height: 22px;
-      width: 22px;
-      font-size: 10px;
-      padding: 6px;
+      height: 32px;
+      width: 32px;
+      font-size: 12px;
+      padding: 10px;
     }
     .board {
       h1 {
@@ -342,6 +348,7 @@ body {
           .column-btn-change {
             height: 30px;
             width: 90px;
+            font-size: 10px;
             margin-bottom: 10px;
           }
           .column-btn-delete {
@@ -350,7 +357,6 @@ body {
           .column-card-list {
             .card {
               width: 25vw;
-              margin-right: 2.5vw;
               margin-bottom: 10px;
               box-shadow: 5px 5px 1px $deep-sea;
               display: flex;
@@ -363,6 +369,7 @@ body {
               .card-btn-change {
                 height: 30px;
                 width: 90px;
+                font-size: 10px;
                 position: absolute;
                 bottom: 5px;
               }
@@ -422,7 +429,7 @@ body {
             .card {
               width: 25vw;
               margin-bottom: 10px;
-              box-shadow: 5px 5px 1px #003B37;
+              box-shadow: 5px 5px 1px #001a18;
               display: flex;
               flex-direction: column;
               .card-description {

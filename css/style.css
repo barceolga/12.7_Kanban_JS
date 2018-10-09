@@ -5,7 +5,7 @@
 }
 
 body {
-  background: linear-gradient(to left, #93cede 0%, #93cede 35%, #004d4d 85%, #004d4d 93%, #004d4d 100%);
+  background: linear-gradient(to left, #2BC0E4, #d2f1f9, #2BC0E4, #d2f1f9);
   -ms-flex-pack: center;
       justify-content: center;
   -ms-flex-align: center;
@@ -19,7 +19,7 @@ body .btn-delete, body .board .column-container .column .column-btn-change, body
   text-align: center;
   border-radius: 10%;
   border: none;
-  background-color: #004d4d;
+  background-color: #1c567d;
   color: #fff;
   font-size: 12px;
   font-weight: 800;
@@ -31,7 +31,7 @@ body .btn-delete, body .board .column-container .column .column-btn-change, body
 
 body .btn-delete:hover, body .board .column-container .column .column-btn-change:hover, body .board .column-container .column .column-card-list .card div .card-btn-delete:hover, body .board .column-container .column .column-card-list .card .card-btn-change:hover, body .board .column-container .column .column-btn-delete:hover, body .board .column-container .column .add-card:hover {
   background-color: #5ebab4;
-  color: #001a18;
+  color: #133953;
 }
 
 body .board {
@@ -50,15 +50,15 @@ body .board {
 
 body .board h1 {
   width: 40%;
-  background-color: #990000;
-  box-shadow: 10px 10px 1px #003B37;
+  background-color: #133953;
+  box-shadow: 10px 10px 1px #001a18;
   font-size: 50px;
   padding: 25px;
   font-family: "Montserrat", sans-serif;
   font-style: italic;
   font-weight: 600;
   color: #FFFDC7;
-  text-shadow: 2px 4px 4px #003B37;
+  text-shadow: 2px 4px 4px #001a18;
   text-transform: capitalize;
   text-align: center;
   text-transform: capitalize;
@@ -71,7 +71,7 @@ body .board .create-column {
   border-radius: 30px;
   border: none;
   text-align: center;
-  background-color: #990000;
+  background-color: #133953;
   color: #FFFDC7;
   font-size: 18px;
   font-family: "Montserrat", sans-serif;
@@ -83,7 +83,7 @@ body .board .create-column {
 
 body .board .create-column:hover {
   background: linear-gradient(to bottom left, #fff, #ccc);
-  color: #990000;
+  color: #133953;
 }
 
 body .board .column-container {
@@ -92,35 +92,37 @@ body .board .column-container {
   display: flex;
   -ms-flex-pack: center;
       justify-content: center;
-  -ms-flex-align: center;
-      align-items: center;
+  -ms-flex-align: start;
+      align-items: flex-start;
   height: auto;
   width: 99vw;
 }
 
 body .board .column-container .column {
   position: relative;
-  height: auto;
+  height: 75vh;
   width: 30vw;
-  background-color: #ffaa80;
-  box-shadow: 10px 10px 1px #001a18;
+  background: linear-gradient(to right, #ffbb99, #ffccb3, #ffddcc);
+  box-shadow: 10px 10px 1px #133953;
   margin: 10px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
       flex-direction: column;
-  -ms-flex-pack: center;
-      justify-content: center;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  -ms-flex-align: center;
+      align-items: center;
 }
 
 body .board .column-container .column .column-title {
   margin-top: 0;
   width: 100%;
-  height: auto;
+  height: 50px;
   font-size: 25px;
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
-  color: #001a18;
+  color: #133953;
   text-shadow: 2px 2px 2px #999999;
   font-weight: 700;
   text-align: center;
@@ -134,6 +136,7 @@ body .board .column-container .column .column-buttons {
       justify-content: center;
   -ms-flex-align: center;
       align-items: center;
+  height: 60px;
 }
 
 body .board .column-container .column .column-btn-change {
@@ -151,10 +154,12 @@ body .board .column-container .column .column-card-list {
   display: flex;
   -ms-flex-direction: column;
       flex-direction: column;
-  -ms-flex-pack: center;
-      justify-content: center;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
   -ms-flex-align: center;
       align-items: center;
+  height: 65vh;
+  overflow: auto;
   min-height: 10px;
   padding-top: 10px;
   padding-left: 0;
@@ -167,7 +172,7 @@ body .board .column-container .column .column-card-list .card {
   height: auto;
   width: 25vw;
   background: linear-gradient(to bottom left, #fff, #ccc);
-  box-shadow: 10px 10px 1px #001a18;
+  box-shadow: 10px 10px 1px #133953;
   margin-bottom: 15px;
   position: relative;
 }
@@ -176,7 +181,7 @@ body .board .column-container .column .column-card-list .card .card-description 
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  color: #001a18;
+  color: #133953;
   text-shadow: 2px 1px #FFFDCC;
   text-align: center;
   padding: 0px;
@@ -218,21 +223,21 @@ body .board .column-container .column .add-card {
 
 body .board .column-container .column .add-card:hover {
   background-color: #a6d9d6;
-  color: #003B37;
+  color: #001a18;
   text-shadow: none;
 }
 
 body .board .card-placeholder {
   width: 25vw;
   height: 120px;
-  border: 2px inset #001a18;
+  border: 2px inset #133953;
   background-color: #5ebab4;
 }
 
 body .board .column-placeholder {
   height: auto;
   width: 30vw;
-  border: 2px inset #001a18;
+  border: 2px inset #133953;
   background-color: #5ebab4;
 }
 
@@ -261,10 +266,10 @@ body .board .ui-sortable-helper {
 
 @media (max-width: 767px) and (orientation: portrait) {
   body .btn-delete, body .board .column-container .column .column-btn-change, body .board .column-container .column .column-card-list .card div .card-btn-delete, body .board .column-container .column .column-card-list .card .card-btn-change, body .board .column-container .column .column-btn-delete, body .board .column-container .column .add-card {
-    height: 22px;
-    width: 22px;
-    font-size: 10px;
-    padding: 6px;
+    height: 42px;
+    width: 42px;
+    font-size: 14px;
+    padding: 13px;
   }
   body .board h1 {
     width: 90%;
@@ -293,8 +298,9 @@ body .board .ui-sortable-helper {
     margin-bottom: 15px;
   }
   body .board .column-container .column .column-btn-change {
-    height: 30px;
-    width: 90px;
+    height: 40px;
+    border-radius: 20px;
+    width: 120px;
     margin-bottom: 10px;
   }
   body .board .column-container .column .column-btn-delete {
@@ -303,16 +309,17 @@ body .board .ui-sortable-helper {
   body .board .column-container .column .column-card-list .card {
     width: 75vw;
     margin-bottom: 10px;
-    box-shadow: 5px 5px 1px #001a18;
+    box-shadow: 5px 5px 1px #133953;
   }
   body .board .column-container .column .column-card-list .card .card-description {
     font-size: 14px;
     padding: 6.66px;
-    margin: 10px auto;
+    margin: 5px auto;
   }
   body .board .column-container .column .column-card-list .card .card-btn-change {
-    height: 30px;
-    width: 90px;
+    height: 40px;
+    width: 120px;
+    border-radius: 20px;
   }
   body .board .card-placeholder {
     width: 75vw;
@@ -321,10 +328,10 @@ body .board .ui-sortable-helper {
 
 @media (max-width: 767px) and (orientation: landscape) {
   body .btn-delete, body .board .column-container .column .column-btn-change, body .board .column-container .column .column-card-list .card div .card-btn-delete, body .board .column-container .column .column-card-list .card .card-btn-change, body .board .column-container .column .column-btn-delete, body .board .column-container .column .add-card {
-    height: 22px;
-    width: 22px;
-    font-size: 10px;
-    padding: 6px;
+    height: 32px;
+    width: 32px;
+    font-size: 12px;
+    padding: 10px;
   }
   body .board h1 {
     width: 60%;
@@ -355,6 +362,7 @@ body .board .ui-sortable-helper {
   body .board .column-container .column .column-btn-change {
     height: 30px;
     width: 90px;
+    font-size: 10px;
     margin-bottom: 10px;
   }
   body .board .column-container .column .column-btn-delete {
@@ -362,9 +370,8 @@ body .board .ui-sortable-helper {
   }
   body .board .column-container .column .column-card-list .card {
     width: 25vw;
-    margin-right: 2.5vw;
     margin-bottom: 10px;
-    box-shadow: 5px 5px 1px #001a18;
+    box-shadow: 5px 5px 1px #133953;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
@@ -378,6 +385,7 @@ body .board .ui-sortable-helper {
   body .board .column-container .column .column-card-list .card .card-btn-change {
     height: 30px;
     width: 90px;
+    font-size: 10px;
     position: absolute;
     bottom: 5px;
   }
@@ -431,7 +439,7 @@ body .board .ui-sortable-helper {
   body .board .column-container .column .column-card-list .card {
     width: 25vw;
     margin-bottom: 10px;
-    box-shadow: 5px 5px 1px #003B37;
+    box-shadow: 5px 5px 1px #001a18;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
