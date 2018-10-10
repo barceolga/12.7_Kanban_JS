@@ -159,7 +159,8 @@ body .board .column-container .column .column-card-list {
   -ms-flex-align: center;
       align-items: center;
   height: 65vh;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   min-height: 10px;
   padding-top: 10px;
   padding-left: 0;
