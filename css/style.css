@@ -283,10 +283,12 @@ body .board .ui-sortable-helper {
     padding: 10px;
     height: 40px;
     border-radius: 20px;
+    margin: 12.5px auto;
   }
   body .board .column-container {
     -ms-flex-direction: column;
         flex-direction: column;
+    margin: 12.5px 25px 25px 25px;
   }
   body .board .column-container .column {
     width: 90vw;
@@ -308,6 +310,9 @@ body .board .ui-sortable-helper {
   }
   body .board .column-container .column .column-btn-delete {
     margin-bottom: 15px;
+  }
+  body .board .column-container .column .column-card-list {
+    margin-top: 5px;
   }
   body .board .column-container .column .column-card-list .card {
     width: 75vw;
@@ -349,13 +354,16 @@ body .board .ui-sortable-helper {
     padding: 10px;
     height: 40px;
     border-radius: 20px;
+    margin: 12.5px auto;
   }
   body .board .column-container {
     -ms-flex-direction: row;
         flex-direction: row;
+    margin: 0 25px 25px 25px;
   }
   body .board .column-container .column {
     width: 30vw;
+    height: 80vh;
   }
   body .board .column-container .column .column-title {
     font-size: 18px;
@@ -377,8 +385,12 @@ body .board .ui-sortable-helper {
   body .board .column-container .column .column-btn-delete {
     margin-bottom: 5px;
   }
+  body .board .column-container .column .column-card-list {
+    margin-top: 5px;
+  }
   body .board .column-container .column .column-card-list .card {
     width: 25vw;
+    min-height: 90px;
     margin-bottom: 10px;
     box-shadow: 5px 5px 1px #133953;
     display: -ms-flexbox;
@@ -390,6 +402,10 @@ body .board .ui-sortable-helper {
     font-size: 14px;
     padding: 0;
     margin: 0 20px;
+    max-height: 18px;
+  }
+  body .board .column-container .column .column-card-list .card .btn-change-wrapper {
+    max-height: 32px;
   }
   body .board .column-container .column .column-card-list .card .card-btn-change {
     height: 30px;

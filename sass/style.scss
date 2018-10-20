@@ -144,7 +144,7 @@ body {
                 align-items: center;
                 height: 65vh;
                 overflow-y: auto;
-                overflow-x: hidden;              
+                overflow-x: hidden;
                 min-height: 10px;
                 padding-top: 10px;
                 padding-left: 0;
@@ -268,9 +268,11 @@ body {
       padding: 10px;
       height: 40px;
       border-radius: 20px;
+      margin: 12.5px auto;
     }
     .column-container {
       flex-direction: column;
+      margin: 12.5px 25px 25px 25px;
       .column {
         width: 90vw;
         .column-title {
@@ -292,6 +294,7 @@ body {
           margin-bottom: 15px;
         }
         .column-card-list {
+          margin-top: 5px;
           .card {
             width: 75vw;
             margin-bottom: 10px;
@@ -338,11 +341,14 @@ body {
         padding: 10px;
         height: 40px;
         border-radius: 20px;
+        margin: 12.5px auto;
       }
       .column-container {
         flex-direction: row;
+        margin: 0 25px 25px 25px;
         .column {
           width: 30vw;
+          height: 80vh;
           .column-title {
             font-size: 18px;
             padding: 10px;
@@ -364,8 +370,10 @@ body {
             margin-bottom: 5px;
           }
           .column-card-list {
+            margin-top: 5px;
             .card {
               width: 25vw;
+              min-height: 90px;
               margin-bottom: 10px;
               box-shadow: 5px 5px 1px $deep-sea;
               display: flex;
@@ -374,6 +382,10 @@ body {
                 font-size: 14px;
                 padding: 0;
                 margin: 0 20px;
+                max-height: 18px;
+              }
+              .btn-change-wrapper {
+                max-height: 32px;
               }
               .card-btn-change {
                 height: 30px;
