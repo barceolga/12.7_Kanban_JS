@@ -363,12 +363,13 @@ body .board .ui-sortable-helper {
   }
   body .board .column-container .column {
     width: 30vw;
-    height: 80vh;
+    height: 100vh;
   }
   body .board .column-container .column .column-title {
     font-size: 18px;
     padding: 10px;
     height: auto;
+    margin-bottom: 0;
   }
   body .board .column-container .column .column-buttons {
     height: auto;

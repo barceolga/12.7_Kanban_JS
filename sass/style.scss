@@ -348,11 +348,12 @@ body {
         margin: 0 25px 25px 25px;
         .column {
           width: 30vw;
-          height: 80vh;
+          height: 100vh;
           .column-title {
             font-size: 18px;
             padding: 10px;
             height: auto;
+            margin-bottom: 0;
           }
           .column-buttons  {
             height: auto;
